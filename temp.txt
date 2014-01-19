@@ -1,0 +1,24 @@
+/*
+//    private void editPath() {
+//        JTextField edgeName = new JTextField(20).setEditable(false);
+//        JTextField edgeWeight = new JTextField(20);
+//        ArrayList<TYPE> toAndFrom = Neuron.selectedNeurons; //always only index 0 och 1
+//        JPanel editEdgePanel = new JPanel(new GridLayout(2,1,5,0));
+//        LinkedList<?> pathsFrom = neuronListGraph.getEdgesFrom(toAndFrom.get(0));
+//        LinkedList<?> pathsTo = neuronListGraph.getEdgesFrom(toAndFrom.get(1));
+//
+//        HashMap<Neuron,LinkedList<?>> allNeurons = neuronListGraph.getNodes();
+//        editEdgePanel.add(new JLabel("Vad ska förbindelsen heta?"));
+//        editEdgePanel.add(new JLabel("Hur lång tid tar det?"));
+//        editEdgePanel.add(edgeName);
+//        editEdgePanel.add(edgeWeight);
+//
+//        int numberOfPaths = 0;
+//        for (int i = 0; i < pathsFrom.size(); i++) {
+//            Object o = pathsFrom.get(i));
+//            for (int it = 0; i < pathsTo.size();it++ ) {
+//                Object ot = pathsTo.get(it);
+//            }
+//        }
+//    }
+*/
