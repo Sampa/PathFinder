@@ -93,8 +93,8 @@ public class PathFinder extends JFrame implements Serializable{
     }
     public static void main(String[] args) {
         win = new PathFinder();
-       // win.loadFromFile("test.drini");
-        /*    Neuron newestNeuron = new Neuron(50,249,"sthlm",win);
+          //  win.loadFromFile("test.drini");
+            Neuron newestNeuron = new Neuron(50,249,"sthlm",win);
             Neuron newestNeuron2 = new Neuron(250,350,"polen",win);
             Neuron newestNeuron3 = new Neuron(350,140,"Helsinki",win);
             Neuron newestNeuron4 = new Neuron(400,240,"TAllin",win);
@@ -114,13 +114,14 @@ public class PathFinder extends JFrame implements Serializable{
             win.addLine("invokeOnLineClick", new Color(60, 118, 61), win.neuronListGraph, win.neuronListGraph.getNeuronPair(newestNeuron2, newestNeuron3));
             win.addLine("invokeOnLineClick", new Color(60, 118, 61), win.neuronListGraph,win.neuronListGraph.getNeuronPair(newestNeuron,newestNeuron4));
             win.addLine("invokeOnLineClick", new Color(60, 118, 61), win.neuronListGraph,win.neuronListGraph.getNeuronPair(newestNeuron3, newestNeuron4));
-    //        win.saveToFile("test.drini");*/
+          //  win.saveToFile("test.drini");
         win.pack();
         win.repaint();
 
     }
     private boolean saveToFile(String filePath) {
         //todo se om jag kan få bort neuronernas listeners också
+        print(filePath);
         try {
             FileOutputStream saveFile = new FileOutputStream(filePath);
             ObjectOutputStream oos = new ObjectOutputStream(saveFile);
@@ -160,11 +161,13 @@ public class PathFinder extends JFrame implements Serializable{
             println(pairs.toString());*/
 
         } catch (ClassNotFoundException e) {
-        } catch (FileNotFoundException e) {
-        } catch (IOException e) {
+            print(e.getMessage());
+        } catch (FileNotFoundException fe) {
+            JOptionPane.showMessageDialog(win,"Kunde inte hitta filen, eller så har den fel rättigheter");
+        } catch (IOException ioe) {
+            JOptionPane.showMessageDialog(win,"IO exception"+ioe.getCause());
         }
     }
-
     public static void invokeOnLineClick(NeuronPair neuronPair){
         win.editPath(neuronPair);
     }
@@ -213,7 +216,6 @@ public class PathFinder extends JFrame implements Serializable{
                 File file = fileChooser.getSelectedFile();
                 // The name of the file to open.
                 filePath = file.getAbsolutePath();
-
                 saveToFile(filePath);
             }catch(Exception ex) {
                 JOptionPane.showMessageDialog(win, "Kunde inte spara");
@@ -291,7 +293,10 @@ public class PathFinder extends JFrame implements Serializable{
     }
     private void editPath(NeuronPair np){
         try{
-            neuronListGraph.showEditEdgeDialog(win,np);
+            if(Neuron.deselectAll()){
+                Neuron.selectNeuronPair(np);
+                neuronListGraph.showEditEdgeDialog(win, np);
+            }
         }catch(Exception editPathError){
             JOptionPane.showMessageDialog(PathFinder.this.win, "Du kan bara editera om du valt två platser som det existerar en förbindelse mellan");
         }
@@ -345,6 +350,11 @@ public class PathFinder extends JFrame implements Serializable{
         changeAllStateComponents(false);
     }
     private void setBg(String path) {
+        try{
+            layerPanel.remove(bg);
+        }catch(NullPointerException ne){
+            //no need to remove anything
+        }
         bg = new BgImage(path);
         hasChanges = true;
         width = bg.getWidth() + 15;
@@ -393,8 +403,6 @@ public class PathFinder extends JFrame implements Serializable{
                 doLoop= false;
             }
         }
-//        win.addLine("invokeOnLineClick",new Color(60,118,61),newestNeuron.getPosX(),newestNeuron.getPosY(),newestNeuron3.getPosX(),newestNeuron3.getPo
-
         win.addLine("invokeOnLineClick", new Color(60, 118, 61), neuronListGraph, neuronListGraph.getNeuronPair(n1, n2));
         validate();
         repaint();
@@ -527,45 +535,51 @@ public class PathFinder extends JFrame implements Serializable{
         @Override
         public void mouseClicked(MouseEvent e) {
             super.mouseClicked(e);
-            if (win.allowNewNeuron) {
                 try{
-                    win.allowNewNeuron = false;
+                    newNeuronButton.removeActionListener(newNeuronL);
+                    newNeuron.removeActionListener(newNeuronL);
                     setCursor(defaultCursor);
                     int posX = e.getX()-15;
                     int posY = e.getY()-75;
                     if(posX < bg.getX() || posY < bg.getY()){
                         JOptionPane.showMessageDialog(win, "Du måste klicka på kartan!");
                     }else{
-                        String neuronName = JOptionPane.showInputDialog(win,"Platsens namn","Ny plats",JOptionPane.PLAIN_MESSAGE);
-                        if ((neuronName !=null) & (neuronName.length() > 0)) {
-
-
-                            Neuron newestNeuron = new Neuron(posX,posY,neuronName,win);
-                            layerPanel.add(newestNeuron);
-                            layerPanel.moveToFront(newestNeuron);
-                            neuronListGraph.add(newestNeuron);
-                            hasChanges =  true;
-                            allowNewNeuron = true;
-                            validate();
-                            repaint();
-                            pack();
+                        JPanel neuronPanel = new JPanel(new GridLayout(2,1));
+                        JLabel neuronLabel = new JLabel("Vad ska platsen heta?");
+                        JTextField neuronField = new JTextField(10);
+                        neuronPanel.add(neuronLabel);
+                        neuronPanel.add(neuronField);
+                        int result = JOptionPane.showOptionDialog(win, neuronPanel,
+                                "Ny plats",JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"OK", "Cancel"}, neuronField);
+                        if (result == JOptionPane.OK_OPTION){
+                            String neuronName = neuronField.getText();
+                            if ((neuronName !=null) & (neuronName.length() > 0)) {
+                                Neuron newestNeuron = new Neuron(posX,posY,neuronName,win);
+                                layerPanel.add(newestNeuron);
+                                layerPanel.moveToFront(newestNeuron);
+                                neuronListGraph.add(newestNeuron);
+                                hasChanges =  true;
+                                allowNewNeuron = true;
+                                validate();
+                                repaint();
+                                pack();
+                            }
                         }
                     }
+                    newNeuronButton.addActionListener(newNeuronL);
+                    newNeuron.addActionListener(newNeuronL);
                 }catch(NullPointerException n){
                     JOptionPane.showMessageDialog(win, "Du måste ange ett namn!");
-                    allowNewNeuron = true;
                 }
-            }
-            addMouseListener(mListener);
+
+            removeMouseListener(mListener);
         }
     }
     private class NewNeuronListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(allowNewNeuron){
                 setCursor(crosshairCursor); //setCursor(int) is depricated
                 addMouseListener(mListener);
-            }
         }
     }
     private class MyWindowListener extends WindowAdapter implements ActionListener {
@@ -627,8 +641,6 @@ public class PathFinder extends JFrame implements Serializable{
             }catch(NullPointerException npe){
                 alert(n1,n2);
             }
-            //todo måste prova söka väg
-
             return;
         }
     }

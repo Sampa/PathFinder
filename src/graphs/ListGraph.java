@@ -148,7 +148,7 @@ public class ListGraph<TYPE> implements Graph<TYPE>, Serializable {
         while(doLoop) {
             try {
                 int result = JOptionPane.showOptionDialog((Component) parentComponent, editEdgePanel,
-                        "Mellan"+neuronPair.getN1()+" och "+neuronPair.getN2()+"?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Spara", "Avbryt"}, edgeWeight);
+                        "Ändra mellan "+neuronPair.getN1()+" och "+neuronPair.getN2()+"?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Spara", "Avbryt"}, edgeWeight);
                 if (result == JOptionPane.YES_OPTION) {
                     int newWeight = Integer.parseInt(edgeWeight.getText());
                     Edge thisEdge = pairs.get(neuronPair);

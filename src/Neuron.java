@@ -1,3 +1,5 @@
+import graphs.NeuronPair;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.Color;
@@ -131,6 +133,44 @@ public class Neuron extends JComponent{
         result = 31 * result + edges.hashCode();
         return result;
     }
+    public void select(){
+        int neuronCount = getSelectedNeuronCount();
+        panel.setBackground(Color.ORANGE);
+        panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+        setSelectedNeuronCount(neuronCount + 1);
+        selectedNeurons.add(Neuron.this);
+        if (getSelectedNeuronCount() == 2) {
+            PathFinder.enableAllStateItems();
+        }
+    }
+    public void deselect(){
+        int neuronCount = getSelectedNeuronCount();
+            Neuron.this.panel.setBackground(Color.BLUE);
+            Neuron.this.panel.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 3));
+            setSelectedNeuronCount(neuronCount - 1);
+            selectedNeurons.remove(Neuron.this);
+            if (getSelectedNeuronCount() < 2) {
+                PathFinder.disableAllStateItems();
+            }
+    }
+    public static void selectNeuronPair(NeuronPair<Neuron> np){
+           deselectAll();
+           Neuron n1 = np.getN1();
+           Neuron n2 = np.getN2();
+           n1.select();
+           n2.select();
+    }
+    public static boolean deselectAll(){
+        //lite onödigt stor men failsafe med loop och try catch iaf
+        try {
+            for (int i = 0; i < selectedNeurons.size(); i++) {
+                selectedNeurons.get(i).deselect();
+            }
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
     private class ClickListener extends MouseAdapter{
         private JFrame win;
         private ClickListener(JFrame pf) {
@@ -142,23 +182,10 @@ public class Neuron extends JComponent{
                 JOptionPane.showMessageDialog(Neuron.this, "Du har redan valt två platser");
                 return;
             }
-            if (Neuron.this.selected) {
-                Neuron.this.panel.setBackground(Color.BLUE);
-                Neuron.this.panel.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 3));
-                setSelectedNeuronCount(neuronCount - 1);
-                selectedNeurons.remove(Neuron.this);
-                if (getSelectedNeuronCount() < 2) {
-                    PathFinder.disableAllStateItems();
-                }
-            } else {
-                panel.setBackground(Color.ORANGE);
-                panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
-                setSelectedNeuronCount(neuronCount + 1);
-                selectedNeurons.add(Neuron.this);
-                if (getSelectedNeuronCount() == 2) {
-                    PathFinder.enableAllStateItems();
-                }
-
+            if(Neuron.this.isSelected())
+                Neuron.this.deselect();
+            else{
+                Neuron.this.select();
             }
             Neuron.this.selected = !Neuron.this.selected;
         }
