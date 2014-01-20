@@ -1,9 +1,11 @@
 package graphs;
 
+import java.io.Serializable;
+
 /**
  * Created by Sampa on 2014-01-06.
  */
-public class NeuronPair<TYPE> {
+public class NeuronPair<TYPE> implements Serializable{
     private TYPE n1;
     private TYPE n2;
 

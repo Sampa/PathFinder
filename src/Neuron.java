@@ -4,13 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.Color;
 import java.awt.event.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
  * Created by Sampa on 2013-12-26.
  */
-public class Neuron extends JComponent{
+public class Neuron extends JComponent implements Serializable{
     private static int selectedNeuronCount;
     public static ArrayList<Neuron> selectedNeurons = new ArrayList();
     private int posX,posY;
@@ -19,37 +20,37 @@ public class Neuron extends JComponent{
     private JPanel panel;
     private JLabel label;
     private LinkedList<?> edges = new LinkedList();
-    private HooverListener hl;
     private ClickListener cl;
 
     public Neuron(int posX, int posY, String name,JFrame pf) {
         this.posX = posX;
         this.posY = posY;
         this.name = name;
-        hl = new HooverListener();
-        cl = new ClickListener(pf);
+        cl = new ClickListener();
         setLayout(new BorderLayout());
         panel = new JPanel();
         label = new JLabel(name);
         panel.setBackground(Color.BLUE);
         panel.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 3));
         panel.setPreferredSize(new Dimension(20, 20));
-        panel.addMouseListener(hl);
         label.setForeground(Color.RED);
         label.setBackground(Color.WHITE);
         add(panel, BorderLayout.WEST);
         add(label, BorderLayout.SOUTH);
-
         panel.addMouseListener(cl);
-
         setBounds(posX, posY, 50, 35);
-        addMouseListener(hl);
     }
 
-    public void removeListerners(){
+    public void removeListerner(){
         try{
-            //remove Listener(hl);
             this.panel.removeMouseListener(cl);
+        }catch (NullPointerException npe){
+            System.out.print("darn");
+        }
+    }
+    public void addListerner(){
+        try{
+            this.panel.addMouseListener(new ClickListener());
         }catch (NullPointerException npe){
             System.out.print("darn");
         }
@@ -124,7 +125,6 @@ public class Neuron extends JComponent{
 
         return true;
     }
-
     @Override
     public int hashCode() {
         int result = posX;
@@ -135,6 +135,7 @@ public class Neuron extends JComponent{
     }
     public void select(){
         int neuronCount = getSelectedNeuronCount();
+        selected = true;
         panel.setBackground(Color.ORANGE);
         panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
         setSelectedNeuronCount(neuronCount + 1);
@@ -145,13 +146,14 @@ public class Neuron extends JComponent{
     }
     public void deselect(){
         int neuronCount = getSelectedNeuronCount();
-            Neuron.this.panel.setBackground(Color.BLUE);
-            Neuron.this.panel.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 3));
-            setSelectedNeuronCount(neuronCount - 1);
-            selectedNeurons.remove(Neuron.this);
-            if (getSelectedNeuronCount() < 2) {
-                PathFinder.disableAllStateItems();
-            }
+        Neuron.this.panel.setBackground(Color.BLUE);
+        Neuron.this.panel.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 3));
+        setSelectedNeuronCount(neuronCount - 1);
+        selectedNeurons.remove(Neuron.this);
+        if (getSelectedNeuronCount() < 2) {
+            PathFinder.disableAllStateItems();
+        }
+        selected = false;
     }
     public static void selectNeuronPair(NeuronPair<Neuron> np){
            deselectAll();
@@ -171,10 +173,8 @@ public class Neuron extends JComponent{
             return false;
         }
     }
-    private class ClickListener extends MouseAdapter{
-        private JFrame win;
-        private ClickListener(JFrame pf) {
-            win = pf;
+    private class ClickListener extends MouseAdapter implements Serializable{
+        private ClickListener() {
         }
         public void mouseClicked(MouseEvent e) {
             int neuronCount = getSelectedNeuronCount();
@@ -182,16 +182,12 @@ public class Neuron extends JComponent{
                 JOptionPane.showMessageDialog(Neuron.this, "Du har redan valt två platser");
                 return;
             }
-            if(Neuron.this.isSelected())
+            if(Neuron.this.isSelected()){
                 Neuron.this.deselect();
-            else{
+            }else{
                 Neuron.this.select();
             }
-            Neuron.this.selected = !Neuron.this.selected;
         }
-    }
-
-    private class HooverListener extends MouseAdapter {
         @Override
         public void mouseEntered(MouseEvent e) {
             super.mouseEntered(e);

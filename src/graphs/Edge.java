@@ -1,11 +1,12 @@
 package graphs;
 
 import javax.swing.*;
+import java.io.Serializable;
 
 /**
  * Created by Sampa on 2013-12-26.
  */
-public class Edge<TYPE> extends JComponent{
+public class Edge<TYPE> extends JComponent implements Serializable{
     private TYPE start;
     private TYPE destination;
     private int weight;

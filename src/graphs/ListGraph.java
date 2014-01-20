@@ -9,7 +9,19 @@ import java.util.List;
  * Created by Sampa on 2013-12-26.
  */
 public class ListGraph<TYPE> implements Graph<TYPE>, Serializable {
-    //    public List<TYPE> path = new LinkedList<>();
+    @Override
+    public String toString() {
+        return "ListGraph{" +
+                "allNeurons=" + allNeurons +
+                ", pairs=" + pairs +
+                ", edgePanel=" + edgePanel +
+                ", edgeName=" + edgeName +
+                ", edgeWeight=" + edgeWeight +
+                ", nameLabel=" + nameLabel +
+                ", weightLabel=" + weightLabel +
+                '}';
+    }
+
     public HashMap<TYPE,List<Edge>> allNeurons;
     public HashMap<NeuronPair,Edge> pairs;
     JPanel edgePanel;

@@ -53,6 +53,7 @@ public class PathFinder extends JFrame implements Serializable{
     private OpenListener openL;
     private NewMapListener mpl;
     private ExitListener el;
+    private Color lineColor;
 
 
     PathFinder(){
@@ -79,6 +80,7 @@ public class PathFinder extends JFrame implements Serializable{
         filter = new FileNameExtensionFilter("PathFinder projekt","drini");
         lines = new HashMap<Line, Boolean>();
         visited = new HashSet<Neuron>();
+        lineColor = new Color(60, 118, 61);
         buildMenu();
         addListeners();
         setMinimumSize(new Dimension(width, height));
@@ -93,8 +95,8 @@ public class PathFinder extends JFrame implements Serializable{
     }
     public static void main(String[] args) {
         win = new PathFinder();
-          //  win.loadFromFile("test.drini");
-            Neuron newestNeuron = new Neuron(50,249,"sthlm",win);
+            win.loadFromFile("test.drini");
+         /*   Neuron newestNeuron = new Neuron(50,249,"sthlm",win);
             Neuron newestNeuron2 = new Neuron(250,350,"polen",win);
             Neuron newestNeuron3 = new Neuron(350,140,"Helsinki",win);
             Neuron newestNeuron4 = new Neuron(400,240,"TAllin",win);
@@ -114,25 +116,29 @@ public class PathFinder extends JFrame implements Serializable{
             win.addLine("invokeOnLineClick", new Color(60, 118, 61), win.neuronListGraph, win.neuronListGraph.getNeuronPair(newestNeuron2, newestNeuron3));
             win.addLine("invokeOnLineClick", new Color(60, 118, 61), win.neuronListGraph,win.neuronListGraph.getNeuronPair(newestNeuron,newestNeuron4));
             win.addLine("invokeOnLineClick", new Color(60, 118, 61), win.neuronListGraph,win.neuronListGraph.getNeuronPair(newestNeuron3, newestNeuron4));
-          //  win.saveToFile("test.drini");
+            win.saveAs();*/
         win.pack();
         win.repaint();
 
     }
     private boolean saveToFile(String filePath) {
         //todo se om jag kan få bort neuronernas listeners också
-        print(filePath);
         try {
             FileOutputStream saveFile = new FileOutputStream(filePath);
             ObjectOutputStream oos = new ObjectOutputStream(saveFile);
             // BufferedOutputStream save = new BufferedOutputStream(oos);
-           oos.writeObject(bg.getPath());
-        //   oos.writeObject(win);
-         //  oos.writeObject(neuronListGraph.getAllNeurons());
+            oos.writeObject(bg.getPath());
+            HashMap<Neuron,List<Edge>> allNeurons = neuronListGraph.getAllNeurons();
+            for(Neuron n: allNeurons.keySet()){
+                n.removeListerner();
+            }
+            oos.writeObject(neuronListGraph);
           // oos.writeObject(neuronListGraph.getPairs());
         }catch(FileNotFoundException fnfe){
             JOptionPane.showMessageDialog(win,"Kunde inte hitta filen, eller så har den fel rättigheter");
         }catch (IOException ioe){
+            JOptionPane.showMessageDialog(win,"Något io problem"+ioe.getMessage());
+        }catch (NullPointerException npe){
 
         }
         hasChanges = false;
@@ -143,9 +149,33 @@ public class PathFinder extends JFrame implements Serializable{
         ObjectInputStream ois = null;
         try {
             openFile = new FileInputStream(fileName);
+            setTitle("Pathfinder - " + fileName);
             ois = new ObjectInputStream(openFile);
             String bgImagePath = (String)ois.readObject();
             setBg(bgImagePath);
+            ListGraph<Neuron> savedGraph = (ListGraph<Neuron>)ois.readObject();
+            neuronListGraph = savedGraph;
+            //manual counter
+            int counter = 1;
+            for(Map.Entry<Neuron, List<Edge>> entry : neuronListGraph.allNeurons.entrySet()){
+                //current ones
+                Neuron currentNeuron = entry.getKey();
+                List<Edge> currentNeuronEdges = entry.getValue();
+                //paint int
+                layerPanel.add(currentNeuron,new Integer(counter)); //cant take pure int as second for layer pos
+                //neuron need listeners back
+                currentNeuron.addListerner(); //-TODO why the fuck funkar inte klick bara hover
+                //should be deselected for best user experience imho
+                currentNeuron.deselect();
+                for (int i = 0; i < currentNeuronEdges.size(); i++) {
+                    //addline method would be horror to read without this hahaha
+                    Neuron start = (Neuron) currentNeuronEdges.get(i).getStart();
+                    Neuron end = (Neuron) currentNeuronEdges.get(i).getDestination();
+                    addLine("invokeOnLineClick", lineColor, neuronListGraph, neuronListGraph.getNeuronPair(start,end));
+                }
+                counter++;
+            }
+          //  System.out.print(neuronListGraph);
           //  ois.close();
 //            win = (PathFinder)ois.readObject();
 
