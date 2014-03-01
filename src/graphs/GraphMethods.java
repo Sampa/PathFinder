@@ -40,15 +40,13 @@ public class GraphMethods{
 	}
 	public static <TYPE>  List<Edge> getPath(TYPE from, TYPE to,Graph graph){
 		List<Edge> path = new ArrayList<>(); // we prepare this to build it before returning it
-		if(!pathExists(from,to,graph)) {//early exit
+		if(!pathExists(from,to,graph))//early exit
 			return null;
-		}
 
 		//initiate lists
 		HashSet<TYPE> visitedNeurons = new HashSet<TYPE>();
 		HashMap<TYPE,DataHolder> infoMap = new HashMap<>();
 		HashMap<TYPE,List<Edge>> nodeMap = graph.getNodes();
-//		HashMap<TYPE,List<Edge>> nodeMap = new HashMap<TYPE, List<Edge>>();
 
 		//feed the infoMap with each neuron and the three default start arguments
 		for(Map.Entry<TYPE, List<Edge>>  entry : nodeMap.entrySet()){

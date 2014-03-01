@@ -12,6 +12,5 @@ public interface Graph<TYPE> {
     NeuronPair getNeuronPair(TYPE n1,TYPE n2);
     List<Edge> getEdgesFrom(TYPE neuron);
     Edge getEdgeBetween(NeuronPair np);
-    Edge getEdgeBetween(TYPE n1, TYPE n2);
     HashMap<TYPE,List<Edge>> getNodes();
 }

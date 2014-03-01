@@ -2,11 +2,12 @@ import graphs.NeuronPair;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.Color;
-import java.awt.event.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Sampa on 2013-12-26.
@@ -16,7 +17,7 @@ public class Neuron extends JComponent implements Serializable{
     public static ArrayList<Neuron> selectedNeurons = new ArrayList();
     private int posX,posY;
     private String name;
-    private boolean selected = false;
+    private boolean selected;
     private JPanel panel;
     private JLabel label;
     private LinkedList<?> edges = new LinkedList();
@@ -26,6 +27,7 @@ public class Neuron extends JComponent implements Serializable{
         this.posX = posX;
         this.posY = posY;
         this.name = name;
+        selected = false;
         cl = new ClickListener();
         setLayout(new BorderLayout());
         panel = new JPanel();
@@ -139,28 +141,37 @@ public class Neuron extends JComponent implements Serializable{
         panel.setBackground(Color.ORANGE);
         panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
         setSelectedNeuronCount(neuronCount + 1);
-        selectedNeurons.add(Neuron.this);
+        selectedNeurons.add(this);
+        System.out.print(getSelectedNeuronCount());
+        System.out.println(Neuron.selectedNeurons.toString());
         if (getSelectedNeuronCount() == 2) {
             PathFinder.enableAllStateItems();
         }
     }
     public void deselect(){
         int neuronCount = getSelectedNeuronCount();
-        Neuron.this.panel.setBackground(Color.BLUE);
-        Neuron.this.panel.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 3));
+        panel.setBackground(Color.BLUE);
+        panel.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 3));
         setSelectedNeuronCount(neuronCount - 1);
-        selectedNeurons.remove(Neuron.this);
+        selectedNeurons.remove(this);
         if (getSelectedNeuronCount() < 2) {
             PathFinder.disableAllStateItems();
         }
         selected = false;
     }
     public static void selectNeuronPair(NeuronPair<Neuron> np){
-           deselectAll();
-           Neuron n1 = np.getN1();
-           Neuron n2 = np.getN2();
-           n1.select();
-           n2.select();
+          if(deselectAll()){
+              Neuron n1 = np.getN1();
+              Neuron n2 = np.getN2();
+            try {
+                n1.select();
+                n2.select();
+            } catch (Exception e) {
+                System.out.print("haha");
+            }
+          }else{
+              System.out.print("annat ahha");
+          }
     }
     public static boolean deselectAll(){
         //lite onödigt stor men failsafe med loop och try catch iaf
@@ -173,9 +184,12 @@ public class Neuron extends JComponent implements Serializable{
             return false;
         }
     }
-    private class ClickListener extends MouseAdapter implements Serializable{
-        private ClickListener() {
-        }
+
+    public void setCl(ClickListener o) {
+        cl = o;
+    }
+
+    private class ClickListener extends MouseAdapter{
         public void mouseClicked(MouseEvent e) {
             int neuronCount = getSelectedNeuronCount();
             if (neuronCount > 1 && !Neuron.this.selected) {

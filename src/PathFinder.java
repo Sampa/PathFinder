@@ -14,6 +14,8 @@ import java.lang.reflect.Array;
 import java.util.*;
 import java.util.List;
 
+import static javax.swing.JOptionPane.CANCEL_OPTION;
+import static javax.swing.JOptionPane.YES_OPTION;
 import static myUtil.Printing.*;
 /**
  * Created by Sampa on 2013-12-23.
@@ -131,6 +133,7 @@ public class PathFinder extends JFrame implements Serializable{
             HashMap<Neuron,List<Edge>> allNeurons = neuronListGraph.getAllNeurons();
             for(Neuron n: allNeurons.keySet()){
                 n.removeListerner();
+                n.setCl(null);
             }
             oos.writeObject(neuronListGraph);
           // oos.writeObject(neuronListGraph.getPairs());
@@ -144,6 +147,7 @@ public class PathFinder extends JFrame implements Serializable{
         hasChanges = false;
         return true;
     }
+
     private void loadFromFile(String fileName){
         FileInputStream openFile = null;
         ObjectInputStream ois = null;
@@ -161,12 +165,12 @@ public class PathFinder extends JFrame implements Serializable{
                 //current ones
                 Neuron currentNeuron = entry.getKey();
                 List<Edge> currentNeuronEdges = entry.getValue();
-                //paint int
-                layerPanel.add(currentNeuron,new Integer(counter)); //cant take pure int as second for layer pos
-                //neuron need listeners back
-                currentNeuron.addListerner(); //-TODO why the fuck funkar inte klick bara hover
                 //should be deselected for best user experience imho
                 currentNeuron.deselect();
+                //neuron need listeners back
+                currentNeuron.addListerner();
+                //paint it
+                layerPanel.add(currentNeuron, new Integer(counter)); //cant take pure int as second for layer pos
                 for (int i = 0; i < currentNeuronEdges.size(); i++) {
                     //addline method would be horror to read without this hahaha
                     Neuron start = (Neuron) currentNeuronEdges.get(i).getStart();
@@ -175,6 +179,9 @@ public class PathFinder extends JFrame implements Serializable{
                 }
                 counter++;
             }
+            Neuron.selectedNeurons = new ArrayList();
+            Neuron.setSelectedNeuronCount(0);
+            loadedFromFile = true;
           //  System.out.print(neuronListGraph);
           //  ois.close();
 //            win = (PathFinder)ois.readObject();
@@ -191,7 +198,7 @@ public class PathFinder extends JFrame implements Serializable{
             println(pairs.toString());*/
 
         } catch (ClassNotFoundException e) {
-            print(e.getMessage());
+            JOptionPane.showMessageDialog(win,"Kunde inte återställa all data");
         } catch (FileNotFoundException fe) {
             JOptionPane.showMessageDialog(win,"Kunde inte hitta filen, eller så har den fel rättigheter");
         } catch (IOException ioe) {
@@ -332,8 +339,7 @@ public class PathFinder extends JFrame implements Serializable{
         }
     }
     private void editPath() {
-        NeuronPair temp = new NeuronPair(getFirstSelectedNeuron(),getLastSelectedNeuron());
-        editPath(temp);
+        editPath(getSelectedNeuronPair());
     }
     private void buildMenu(){
         buildArchieve();
@@ -437,6 +443,53 @@ public class PathFinder extends JFrame implements Serializable{
         validate();
         repaint();
     }
+    /*Wrapper mehods i wanted to reuse for later perhaps*/
+    public Boolean[] confirmExit(){
+        return confirmExit(false,null);
+    }
+    public Boolean[] confirmExit(JFrame frame,Boolean doExitNotReturnValue){
+        return confirmExit(doExitNotReturnValue,frame);
+    }
+    public Boolean[] confirmExit(Boolean doExitNotReturnValue){
+        return  confirmExit(doExitNotReturnValue,null);
+    }
+    public Boolean[] confirmExit(JFrame frame) {
+        return confirmExit(false, frame);
+    }
+    public Boolean[] confirmExit(Boolean doExitNotReturnValue, JFrame dialogParentComponent){
+
+
+        Boolean userSelectedToExit = true;
+        Boolean userSelectedToSave = false;
+        Boolean[] result = new Boolean[2];
+        try{
+            int response = JOptionPane.showConfirmDialog(dialogParentComponent, "Du har osparade ändringar,vill du spara dem?", "Välj ett alternativ", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+            if (response == YES_OPTION) {
+                userSelectedToSave = true;
+            }
+            if (response == CANCEL_OPTION) {
+                userSelectedToExit = false;
+                doExitNotReturnValue = false;
+            }
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(dialogParentComponent, "Gick åt h-vete" + error.getCause());
+            doExitNotReturnValue = false; //ingen exit om inget kunde sparas oavsett hur metoden anropades
+
+        }
+        if(doExitNotReturnValue &&  userSelectedToExit)
+            System.exit(0);
+        result[0] = userSelectedToExit;
+        result[1] = userSelectedToSave;
+        return result;
+    }
+    private Object[] convertListToArray(List<?> path){
+        Object[] arr = new Object[path.size()];
+        for (int i = 0; i < path.size(); i++) {
+            Object o = path.get(i);
+            arr[i] = o;
+        }
+        return arr;
+    }
     private void addListeners() {
         saveL = new SaveListener();
         save.addActionListener(saveL);
@@ -497,6 +550,8 @@ public class PathFinder extends JFrame implements Serializable{
     private class OpenListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            Neuron.selectedNeurons = new ArrayList();
+            System.out.println(Neuron.selectedNeurons.toString());
             String str = System.getProperty("user.dir");
             JFileChooser fileChooser = new JFileChooser(str);
             fileChooser.setFileFilter(filter);
@@ -675,7 +730,6 @@ public class PathFinder extends JFrame implements Serializable{
         }
     }
     private class FindPathListener implements ActionListener{
-
         @Override
         public void actionPerformed(ActionEvent e) {
             if(!graphs.GraphMethods.pathExists(getFirstSelectedNeuron(),getLastSelectedNeuron(),neuronListGraph)){
@@ -684,14 +738,6 @@ public class PathFinder extends JFrame implements Serializable{
             }
             displayPath();
         }
-    }
-    private Object[] convertListToArray(List<?> path){
-        Object[] arr = new Object[path.size()];
-        for (int i = 0; i < path.size(); i++) {
-            Object o = path.get(i);
-            arr[i] = o;
-        }
-        return arr;
     }
     @Override
     public void repaint(long time, int x, int y, int width, int height) {
@@ -758,13 +804,16 @@ public class PathFinder extends JFrame implements Serializable{
     private class NewPathListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
+            if(neuronListGraph.pathExists(getFirstSelectedNeuron(),getLastSelectedNeuron()))
+                JOptionPane.showMessageDialog(win,"Det finns tyvärr redan en förbindelse");
             createNewPath();
         }
     }
     private class ExitListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            confirmExit(win,true);
+            if(hasChanges)
+                confirmExit(win, true);
         }
     }
 }

@@ -106,7 +106,7 @@ public class Line extends JComponent implements Serializable {
             super.mouseExited(e);
         }
         private void checkPixel(MouseEvent e){
-
+            /* kopierad (ej egenskriven) kod */
             try {
                 robot = new Robot();
             } catch (AWTException e1) {
@@ -114,6 +114,7 @@ public class Line extends JComponent implements Serializable {
             }
             coord = MouseInfo.getPointerInfo().getLocation();
             Color color = robot.getPixelColor((int)coord.getX(), (int)coord.getY());
+            /*Slut kopierad kod*/
             if(color.getRGB()==lineColor.getRGB()) {
                 setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
                 allowClick = true;

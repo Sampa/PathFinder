@@ -62,7 +62,7 @@ public class ListGraph<TYPE> implements Graph<TYPE>, Serializable {
     }
 
     @Override
-    public List getPath(TYPE from, TYPE to) {
+    public List<TYPE> getPath(TYPE from, TYPE to) {
         return GraphMethods.getPath(from,to,this);
     }
 
