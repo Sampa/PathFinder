@@ -7,14 +7,9 @@ import java.awt.event.MouseEvent;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.concurrent.TimeUnit;
-
-/**
- * Created by Sampa on 2013-12-26.
- */
 public class Neuron extends JComponent implements Serializable{
     private static int selectedNeuronCount;
-    public static ArrayList<Neuron> selectedNeurons = new ArrayList();
+    public static ArrayList<Neuron> selectedNeurons = new ArrayList<>();
     private int posX,posY;
     private String name;
     private boolean selected;
@@ -58,49 +53,16 @@ public class Neuron extends JComponent implements Serializable{
             System.out.print("darn");
         }
     }
-    public LinkedList getEdges() {
-        return edges;
-    }
-    public void setEdges(LinkedList<?> edges) {
-        this.edges = edges;
-    }
+
     @Override
     public String toString() {
-
-        String info;
-
         return name;
     }
-    public int getPosX() {
-        return posX;
-    }
-    public void setPosX(int posX) {
-        this.posX = posX;
-    }
-    public int getPosY() {
-        return posY;
-    }
-    public void setPosY(int posY) {
-        this.posY = posY;
-    }
-    public JPanel getPanel() {
-        return panel;
-    }
-    public void setPanel(JPanel panel) {
-        this.panel = panel;
-    }
-    public JLabel getLabel() {
-        return label;
-    }
-    public void setLabel(JLabel label) {
-        this.label = label;
-    }
+
     public boolean isSelected() {
         return selected;
     }
-    public void setSelected(boolean selected) {
-        this.selected = selected;
-    }
+
     public static int getSelectedNeuronCount() {
         return selectedNeuronCount;
     }
@@ -121,12 +83,8 @@ public class Neuron extends JComponent implements Serializable{
 
         Neuron neuron = (Neuron) o;
 
-        if (posX != neuron.posX) return false;
-        if (posY != neuron.posY) return false;
-        if (!edges.equals(neuron.edges)) return false;
-        if (!name.equals(neuron.name)) return false;
+        return posX == neuron.posX && posY == neuron.posY && edges.equals(neuron.edges) && name.equals(neuron.name);
 
-        return true;
     }
     @Override
     public int hashCode() {
@@ -136,6 +94,11 @@ public class Neuron extends JComponent implements Serializable{
         result = 31 * result + edges.hashCode();
         return result;
     }
+
+    public void setWin(PathFinder win) {
+        this.win = win;
+    }
+
     public void select(){
         int neuronCount = getSelectedNeuronCount();
         selected = true;
@@ -161,20 +124,15 @@ public class Neuron extends JComponent implements Serializable{
     }
     public static void selectNeuronPair(NeuronPair<Neuron> np){
           if(deselectAll()){
-              Neuron n1 = np.getN1();
-              Neuron n2 = np.getN2();
-            try {
-                n1.select();
-                n2.select();
-            } catch (Exception e) {}
-          }else{}
+              np.getN1().select();
+              np.getN2().select();
+          }
     }
     public static boolean deselectAll(){
         //lite onödigt stor men failsafe med loop och try catch iaf
         try {
-            for (int i = 0; i < selectedNeurons.size(); i++) {
-                selectedNeurons.get(i).deselect();
-            }
+            for (Neuron selectedNeuron : selectedNeurons)
+                selectedNeuron.deselect();
             return true;
         } catch (Exception e) {
             return false;
@@ -185,7 +143,7 @@ public class Neuron extends JComponent implements Serializable{
         cl = o;
     }
 
-    private class ClickListener extends MouseAdapter{
+    private class ClickListener extends MouseAdapter implements Serializable{
         public void mouseClicked(MouseEvent e) {
             int neuronCount = getSelectedNeuronCount();
             if (neuronCount > 1 && !Neuron.this.selected) {

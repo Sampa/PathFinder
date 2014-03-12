@@ -35,7 +35,7 @@ public class PathFinder extends JFrame implements Serializable{
     private Cursor crosshairCursor,defaultCursor;
     private BgImage bg;
     private HashMap<Line, Boolean> lines;
-    private ListGraph<Neuron> neuronListGraph = new ListGraph();
+    private ListGraph<Neuron> neuronListGraph = new ListGraph<>();
     private MouseListener mListener;
     private NewPathListener newPathL;
     private NewNeuronListener newNeuronL;
@@ -72,7 +72,7 @@ public class PathFinder extends JFrame implements Serializable{
         loadedFromFile = false;
         hasChanges = false;
         filter = new FileNameExtensionFilter("PathFinder projekt","drini");
-        lines = new HashMap<Line, Boolean>();
+        lines = new HashMap<>();
         lineColor = new Color(60, 118, 61);
         buildMenu();
         addListeners();
@@ -88,7 +88,7 @@ public class PathFinder extends JFrame implements Serializable{
     }
     public static void main(String[] args) {
        PathFinder  win = new PathFinder();
-//            win.loadFromFile("test.drini");
+//            win.loadFromFile("adam.drini");
             Neuron newestNeuron = new Neuron(50,249,"sthlm",win);
             Neuron newestNeuron2 = new Neuron(250,350,"polen",win);
             Neuron newestNeuron3 = new Neuron(350,140,"Helsinki",win);
@@ -110,21 +110,18 @@ public class PathFinder extends JFrame implements Serializable{
             win.addLine("invokeOnLineClick", new Color(60, 118, 61), win.neuronListGraph,win.neuronListGraph.getNeuronPair(newestNeuron,newestNeuron4));
             win.addLine("invokeOnLineClick", new Color(60, 118, 61), win.neuronListGraph,win.neuronListGraph.getNeuronPair(newestNeuron3, newestNeuron4));
             win.setBg("map.jpg");
-            win.saveAs();
+            //win.saveAs();
         win.pack();
         win.repaint();
 
     }
 
 
-    public static void invokeOnLineClick(NeuronPair neuronPair,PathFinder win){
-        try{
+    public static void invokeOnLineClick(NeuronPair<Neuron> neuronPair,PathFinder win){
            win.editPath(neuronPair);
-        }catch (Exception e){
-        }
     }
 
-    private void addLine(String invokeOnClick, Color lineColor,Graph graph, NeuronPair np) {
+    private void addLine(String invokeOnClick, Color lineColor, Graph<? extends Neuron> graph, NeuronPair<? extends Object> np) {
         try{
             Line newLine = new Line(this,invokeOnClick,lineColor,graph,np);
             lines.put(newLine,true);
@@ -150,7 +147,7 @@ public class PathFinder extends JFrame implements Serializable{
         return Neuron.selectedNeurons;
     }
     private NeuronPair getSelectedNeuronPair(){
-        return neuronListGraph.getNeuronPair(getFirstSelectedNeuron(),getLastSelectedNeuron());
+        return neuronListGraph.getNeuronPair(getFirstSelectedNeuron(), getLastSelectedNeuron());
     }
     private void loadFromFile(String fileName){
         FileInputStream openFile;
@@ -161,29 +158,29 @@ public class PathFinder extends JFrame implements Serializable{
             ois = new ObjectInputStream(openFile);
             String bgImagePath = (String)ois.readObject();
             setBg(bgImagePath);
-            ListGraph<Neuron> savedGraph = (ListGraph<Neuron>)ois.readObject();
-            neuronListGraph = savedGraph;
+            neuronListGraph = (ListGraph<Neuron>)ois.readObject();
             //manual counter
             int counter = 1;
             for(Map.Entry<Neuron, List<Edge>> entry : neuronListGraph.allNeurons.entrySet()){
                 //current ones
                 Neuron currentNeuron = entry.getKey();
+                currentNeuron.setWin(this);
                 List<Edge> currentNeuronEdges = entry.getValue();
-                //should be deselected for best user experience imho
+                //should be deselected for best user experience imho 
                 currentNeuron.deselect();
                 //neuron need listeners back
                 currentNeuron.addListerner();
                 //paint it
                 layerPanel.add(currentNeuron, new Integer(counter)); //cant take pure int as second for layer pos
-                for (int i = 0; i < currentNeuronEdges.size(); i++) {
+                for (Edge<? extends Neuron> currentNeuronEdge : currentNeuronEdges) {
                     //addline method would be horror to read without this hahaha
-                    Neuron start = (Neuron) currentNeuronEdges.get(i).getStart();
-                    Neuron end = (Neuron) currentNeuronEdges.get(i).getDestination();
-                    addLine("invokeOnLineClick", lineColor, neuronListGraph, neuronListGraph.getNeuronPair(start,end));
+                    Neuron start = currentNeuronEdge.getStart();
+                    Neuron end = currentNeuronEdge.getDestination();
+                    addLine("invokeOnLineClick", lineColor, neuronListGraph, neuronListGraph.getNeuronPair(start, end));
                 }
                 counter++;
             }
-            Neuron.selectedNeurons = new ArrayList();
+            Neuron.selectedNeurons = new ArrayList<>();
             Neuron.setSelectedNeuronCount(0);
             loadedFromFile = true;
             //  System.out.print(neuronListGraph);
@@ -217,7 +214,7 @@ public class PathFinder extends JFrame implements Serializable{
             ObjectOutputStream oos = new ObjectOutputStream(saveFile);
             // BufferedOutputStream save = new BufferedOutputStream(oos);
             oos.writeObject(bg.getPath());
-            HashMap<Neuron,List<Edge>> allNeurons = neuronListGraph.getAllNeurons();
+            HashMap<Neuron, List<Edge>> allNeurons = neuronListGraph.getAllNeurons();
             for(Neuron n: allNeurons.keySet()){
                 n.removeListerner();
                 n.setCl(null);
@@ -228,7 +225,10 @@ public class PathFinder extends JFrame implements Serializable{
             }
             filter=null;
             try{
+                Image temp = bg.getBg();
+                bg.setBg(null);
                 oos.writeObject(neuronListGraph);
+                bg.setBg(temp);
             }catch(NotSerializableException notInteresting){
                 //error pga bgimage.bg försöker sparas, fast det inte behövs.
             }
@@ -241,6 +241,7 @@ public class PathFinder extends JFrame implements Serializable{
         }catch (NullPointerException npe){
             npe.printStackTrace();
         }
+        savedFilePath = filePath;
         hasChanges = false;
         return true;
     }
@@ -278,8 +279,8 @@ public class PathFinder extends JFrame implements Serializable{
         changeAllStateComponents(false);
     }
     private  void changeAllStateComponents(Boolean newState ) {
-        for (int i = 0; i < hasStateComponents.size(); i++)
-            hasStateComponents.get(i).setEnabled(newState);
+        for (JComponent hasStateComponent : hasStateComponents)
+            hasStateComponent.setEnabled(newState);
         try {
             boolean newNeuronState = false;
             if (bg != null)
@@ -289,12 +290,6 @@ public class PathFinder extends JFrame implements Serializable{
         } catch (NullPointerException ne) {
             ne.printStackTrace();
         }
-    }
-    public  ArrayList<JComponent> getHasStateComponents() {
-        return hasStateComponents;
-    }
-    public void setHasStateComponents(ArrayList<JComponent> hasStateComponents) {
-        hasStateComponents = hasStateComponents;
     }
     public void enableAllStateItems() {
         changeAllStateComponents(true);
@@ -341,7 +336,7 @@ public class PathFinder extends JFrame implements Serializable{
         newNeuron.setMnemonic(KeyEvent.VK_P);
         menuBar.add(opMenu);
     }
-    private void editPath(NeuronPair np){
+    private void editPath(NeuronPair<Neuron> np){
         try{
             if(Neuron.deselectAll()){
                 Neuron.selectNeuronPair(np);
@@ -399,11 +394,8 @@ public class PathFinder extends JFrame implements Serializable{
         changeAllStateComponents(false);
     }
     private void setBg(String path) {
-        try{
+        if(layerPanel !=null && bg !=null)
             layerPanel.remove(bg);
-        }catch(NullPointerException ne){
-
-        }
         bg = new BgImage(path);
         hasChanges = true;
         width = bg.getWidth() + 15;
@@ -432,9 +424,9 @@ public class PathFinder extends JFrame implements Serializable{
         boolean doLoop = true;
         while(doLoop){
             int result = JOptionPane.showOptionDialog(win, newEdgePanel,
-                    title,JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"OK", "Cancel"}, edgeName);
+                    title,JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"OK", "Cancel"}, edgeName);
 
-            if (result == JOptionPane.OK_OPTION) {
+            if (result == JOptionPane.OK_CANCEL_OPTION) {
                 try {
                     if(edgeName.getText().length()<1){
                         JOptionPane.showMessageDialog(win, "Ett Namn,bitte,tack,thankyou!");
@@ -457,14 +449,8 @@ public class PathFinder extends JFrame implements Serializable{
         repaint();
     }
     /*Wrapper mehods i wanted to reuse for later perhaps*/
-    public Boolean[] confirmExit(){
-        return confirmExit(false,null);
-    }
     public Boolean[] confirmExit(JFrame frame,Boolean doExitNotReturnValue){
         return confirmExit(doExitNotReturnValue,frame);
-    }
-    public Boolean[] confirmExit(Boolean doExitNotReturnValue){
-        return  confirmExit(doExitNotReturnValue,null);
     }
     public Boolean[] confirmExit(JFrame frame) {
         return confirmExit(false, frame);
@@ -538,29 +524,10 @@ public class PathFinder extends JFrame implements Serializable{
         findPathButton.addActionListener(fpl);
 
     }
-    private void removeListeners() {
-        //-todo inte alla listeners raderas här, bad practices då vissa försvinner i saveToFile pga referensproblem(tidsbrist)
-        save.removeActionListener(saveL);
-        saveAs.removeActionListener(saveL);
-        removeWindowListener(ml);
-        exit.removeActionListener(el);
-        open.removeActionListener(openL);
-        newMap.removeActionListener(mpl);
-        newPath.removeActionListener(newPathL);
-        newPathButton.removeActionListener(newPathL);
-        newNeuron.removeActionListener(newNeuronL);
-        newNeuronButton.removeActionListener(newNeuronL);
-        showPathButton.removeActionListener(spl);
-        showPath.removeActionListener(spl);
-        editPath.removeActionListener(epl);
-        editPathButton.removeActionListener(epl);
-        findPath.removeActionListener(fpl);
-        findPathButton.removeActionListener(fpl);
-    }
     private class OpenListener implements ActionListener,Serializable {
         @Override
         public void actionPerformed(ActionEvent e) {
-            Neuron.selectedNeurons = new ArrayList();
+            Neuron.selectedNeurons = new ArrayList<>();
             String str = System.getProperty("user.dir");
             JFileChooser fileChooser = new JFileChooser(str);
             fileChooser.setFileFilter(filter);
@@ -610,15 +577,32 @@ public class PathFinder extends JFrame implements Serializable{
         public void actionPerformed(ActionEvent e) {
             if (bg != null)
                 if (hasChanges)
-                    confirmExit(PathFinder.this.win);
+                    confirmExit(PathFinder.this);
+
             String str = System.getProperty("user.dir");
             JFileChooser fileChooser = new JFileChooser(str);
             filter = new FileNameExtensionFilter("Bilder","jpg","gif","png");
             fileChooser.setFileFilter(filter);
-            int code = fileChooser.showOpenDialog(win);
+            int code = fileChooser.showOpenDialog(PathFinder.this);
             if(code == JFileChooser.APPROVE_OPTION) {
                 File file = fileChooser.getSelectedFile();
+                for(Map.Entry<Neuron, List<Edge>> current : neuronListGraph.allNeurons.entrySet()){
+                    PathFinder.this.remove(current.getKey());
+                    PathFinder.this.remove(layerPanel);
+                    layerPanel = new JLayeredPane();
+                    PathFinder.this.add(layerPanel);
+                    List<Edge> list = current.getValue();
+                    for (Edge aList : list) {
+                        PathFinder.this.remove(aList);
+                    }
+                }
                 PathFinder.this.setBg(file.getAbsolutePath());
+                PathFinder.this.validate();
+                PathFinder.this.pack();
+                PathFinder.this.repaint();
+
+                neuronListGraph = new ListGraph<>();
+
             }
         }
     }
@@ -641,8 +625,8 @@ public class PathFinder extends JFrame implements Serializable{
                         neuronPanel.add(neuronLabel);
                         neuronPanel.add(neuronField);
                         int result = JOptionPane.showOptionDialog(PathFinder.this, neuronPanel,
-                                "Ny plats",JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"OK", "Cancel"}, neuronField);
-                        if (result == JOptionPane.OK_OPTION){
+                                "Ny plats",JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"OK", "Cancel"}, neuronField);
+                        if (result == JOptionPane.OK_CANCEL_OPTION){
                             String neuronName = neuronField.getText();
                             if ((neuronName !=null) & (neuronName.length() > 0)) {
                                 Neuron newestNeuron = new Neuron(posX,posY,neuronName,PathFinder.this);
@@ -692,7 +676,7 @@ public class PathFinder extends JFrame implements Serializable{
             if (result[1]) { //användaren ville spara
                 try {
                     save();
-                } catch (Exception saveError) {
+                }catch(Exception saveError) {
                     JOptionPane.showMessageDialog(win,saveError,"Något gick fel",JOptionPane.ERROR_MESSAGE);
                     result[0]=false;
                 }
@@ -711,7 +695,7 @@ public class PathFinder extends JFrame implements Serializable{
     private class ShowPathListener implements ActionListener,Serializable{
         public void alert(Neuron n1,Neuron n2){
             int answer = JOptionPane.showConfirmDialog(win,
-                    "Finns ingen förbindelse mellan,vill du skapa en?", "Ooops!",
+                    "Finns ingen förbindelse mellan,"+n1.getName()+" och "+n2.getName()+"vill du skapa en?", "Ooops!",
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (answer == JOptionPane.YES_OPTION) {
                 createNewPath();
@@ -727,12 +711,9 @@ public class PathFinder extends JFrame implements Serializable{
                 n2 = (Neuron)pair.getN2();
                 pair = neuronListGraph.getNeuronPair(n1,n2);
                 neuronListGraph.showViewEdgeDialog(win, pair);
-            }catch (NoSuchElementException nee){
-                alert(n1,n2);
-            }catch(NullPointerException npe){
+            }catch (NoSuchElementException | NullPointerException nee){
                 alert(n1,n2);
             }
-            return;
         }
     }
     private class FindPathListener implements ActionListener,Serializable{
@@ -759,7 +740,7 @@ public class PathFinder extends JFrame implements Serializable{
         //since we are not allowed to cast to edges here we have to send it to the graphmethods that does the work for us
         int totalTime = GraphMethods.getTotalPathTime(path);
         //init components
-        JList list = new JList(arr);
+        JList<Object> list = new JList<>(arr);
         JScrollPane listScroller = new JScrollPane(list);
         JButton editThisPath = new JButton("Ändra vald förbindelse");
         JDialog dialog = new JDialog(win,"Snabbaste vägen tog "+totalTime,true); //I just happend to think JDialogs are the cutest option
@@ -782,11 +763,11 @@ public class PathFinder extends JFrame implements Serializable{
         dialog.setVisible(true);
     }
     private class ListPathListener implements ActionListener,Serializable {
-        private JList list;
+        private JList<?> list;
         private List<?> path;
         private JDialog dialog;
 
-        private ListPathListener(JDialog dialog,List<?> path,JList list) {
+        private ListPathListener(JDialog dialog,List<?> path, JList<?> list) {
             this.list = list;
             this.path = path;
             this.dialog = dialog;
@@ -797,7 +778,7 @@ public class PathFinder extends JFrame implements Serializable{
             int index = list.getSelectedIndex();
             for (int i = 0; i < path.size(); i++) {
                 if(index==i){
-                    NeuronPair found = neuronListGraph.findEdge(path.get(i));
+                    NeuronPair<Neuron> found = neuronListGraph.findEdge(path.get(i));
                     if(found != null){
                         neuronListGraph.showEditEdgeDialog(win, found);
                         dialog.pack();
@@ -822,6 +803,8 @@ public class PathFinder extends JFrame implements Serializable{
         public void actionPerformed(ActionEvent e) {
             if(hasChanges)
                 confirmExit(win, true);
+            else
+                System.exit(0);
         }
     }
 }
