@@ -10,10 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca4f2b75-b3a7-4b2e-968b-4357a80ed71c" name="Default" comment="//ser ut att funka som det ska">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/META-INF/MANIFEST.MF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Neuron.java" afterPath="$PROJECT_DIR$/src/Neuron.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PathFinder.java" afterPath="$PROJECT_DIR$/src/PathFinder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/pathfinder.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/pathfinder.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PathFinder.iws" />
@@ -101,16 +100,23 @@
       <file leaf-file-name="PathFinder.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PathFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="358" column="37" selection-start="15120" selection-end="15120" vertical-scroll-proportion="0.19465649" vertical-offset="3434" max-vertical-offset="4879">
+            <state line="637" column="58" selection-start="27597" selection-end="27597" vertical-scroll-proportion="0.27334082" vertical-offset="5044" max-vertical-offset="6511">
               <folding>
                 <element signature="method#PathFinder#0;class#PathFinder#0" expanded="true" />
                 <element signature="method#main#0;class#PathFinder#0" expanded="true" />
                 <element signature="method#loadFromFile#0;class#PathFinder#0" expanded="true" />
-                <element signature="e#8343#8381#0" expanded="false" />
+                <element signature="e#8286#8324#0" expanded="false" />
                 <element signature="method#saveToFile#0;class#PathFinder#0" expanded="true" />
-                <element signature="e#16051#16107#0" expanded="false" />
+                <element signature="method#editPath#1;class#PathFinder#0" expanded="true" />
+                <element signature="e#15991#16047#0" expanded="false" />
                 <element signature="method#setHasStateComponents#0;class#PathFinder#0" expanded="true" />
                 <element signature="method#setBg#0;class#PathFinder#0" expanded="true" />
+                <element signature="class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+                <element signature="method#actionPerformed#0;class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+                <element signature="class#NewNeuronListener#0;class#PathFinder#0" expanded="true" />
+                <element signature="method#actionPerformed#0;class#NewNeuronListener#0;class#PathFinder#0" expanded="true" />
+                <element signature="method#actionPerformed#0;class#FindPathListener#0;class#PathFinder#0" expanded="true" />
+                <element signature="method#displayPath#0;class#PathFinder#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -119,7 +125,7 @@
       <file leaf-file-name="Line.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Line.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="21" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="2414">
+            <state line="72" column="21" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
               <folding />
             </state>
           </provider>
@@ -128,7 +134,7 @@
       <file leaf-file-name="BgImage.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BgImage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="36" selection-start="678" selection-end="678" vertical-scroll-proportion="0.0" vertical-offset="208" max-vertical-offset="969">
+            <state line="25" column="36" selection-start="678" selection-end="678" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
               <folding />
             </state>
           </provider>
@@ -146,7 +152,7 @@
       <file leaf-file-name="GraphMethods.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graphs/GraphMethods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="1026" selection-end="1026" vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="3230">
+            <state line="31" column="0" selection-start="1026" selection-end="1026" vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="1513">
               <folding />
             </state>
           </provider>
@@ -155,7 +161,7 @@
       <file leaf-file-name="DataHolder.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graphs/DataHolder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="23" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="867">
+            <state line="5" column="23" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
               <folding />
             </state>
           </provider>
@@ -164,7 +170,7 @@
       <file leaf-file-name="Edge.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graphs/Edge.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="64" selection-start="348" selection-end="348" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1037">
+            <state line="14" column="64" selection-start="348" selection-end="348" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
               <folding />
             </state>
           </provider>
@@ -173,20 +179,18 @@
       <file leaf-file-name="Neuron.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Neuron.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="0" selection-start="2420" selection-end="2420" vertical-scroll-proportion="0.0" vertical-offset="799" max-vertical-offset="2533">
+            <state line="20" column="65" selection-start="714" selection-end="714" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="1547">
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="method#Neuron#0;class#Neuron#0" expanded="true" />
-                <element signature="method#toString#0;class#Neuron#0" expanded="true" />
-                <element signature="method#hashCode#0;class#Neuron#0" expanded="true" />
-                <element signature="method#select#0;class#Neuron#0" expanded="true" />
-                <element signature="method#deselect#0;class#Neuron#0" expanded="true" />
-                <element signature="method#selectNeuronPair#0;class#Neuron#0" expanded="true" />
-                <element signature="method#deselectAll#0;class#Neuron#0" expanded="true" />
-                <element signature="class#ClickListener#0;class#Neuron#0" expanded="true" />
-                <element signature="method#mouseClicked#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
-                <element signature="method#mouseEntered#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
-                <element signature="method#mouseExited#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+                <element signature="method#equals#0;class#Neuron#0" expanded="true" />
+                <element signature="e#2605#2606#0" expanded="true" />
+                <element signature="e#2632#2633#0" expanded="true" />
+                <element signature="e#2669#2670#0" expanded="true" />
+                <element signature="e#2701#2702#0" expanded="true" />
+                <element signature="e#2729#2730#0" expanded="true" />
+                <element signature="e#2756#2757#0" expanded="true" />
+                <element signature="e#2793#2794#0" expanded="true" />
+                <element signature="e#2825#2826#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -243,10 +247,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1" />
-    <option name="y" value="1" />
-    <option name="width" value="1181" />
-    <option name="height" value="719" />
+    <option name="x" value="-1928" />
+    <option name="y" value="54" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -483,6 +487,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -508,19 +525,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -687,7 +691,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="1" width="1181" height="719" extended-state="0" />
+    <frame x="-1928" y="54" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -699,7 +703,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2494331" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3974359" sideWeight="0.4988662" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31891027" sideWeight="0.3197279" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17290552" sideWeight="0.5008881" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15929675" sideWeight="0.5005314" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Facebook Chat" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.14064997" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" x="554" y="342" width="74" height="36" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33274338" sideWeight="0.4988662" order="13" side_tool="false" content_ui="tabs" />
@@ -710,8 +714,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="eSnippet Pro" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17290552" sideWeight="0.4991119" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.29330498" sideWeight="0.6802721" order="2" side_tool="false" content_ui="tabs" x="-126" y="490" width="1271" height="995" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15929675" sideWeight="0.49840596" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.29330498" sideWeight="0.6802721" order="2" side_tool="false" content_ui="tabs" x="143" y="540" width="1354" height="220" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21995465" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -720,8 +724,8 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39903846" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21995465" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21995465" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943678" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32750398" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2494331" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -730,8 +734,8 @@
       <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3338633" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18797629" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="eSnippet Pro" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18797629" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29411766" sideWeight="0.6802721" order="2" side_tool="false" content_ui="tabs" x="209" y="707" width="1180" height="375" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -745,8 +749,8 @@
       <window_info id="Facebook Chat" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.15208334" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3354531" sideWeight="0.4988662" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24929498" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39903846" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -817,18 +821,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="88" column="13" selection-start="2595" selection-end="2595" vertical-scroll-proportion="0.0" vertical-offset="850" max-vertical-offset="2618">
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#Neuron#0;class#Neuron#0" expanded="true" />
-            <element signature="method#toString#0;class#Neuron#0" expanded="true" />
-            <element signature="method#hashCode#0;class#Neuron#0" expanded="true" />
-            <element signature="method#select#0;class#Neuron#0" expanded="true" />
-            <element signature="method#deselect#0;class#Neuron#0" expanded="true" />
-            <element signature="method#selectNeuronPair#0;class#Neuron#0" expanded="true" />
-            <element signature="method#deselectAll#0;class#Neuron#0" expanded="true" />
-            <element signature="class#ClickListener#0;class#Neuron#0" expanded="true" />
-            <element signature="method#mouseClicked#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
-            <element signature="method#mouseEntered#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
-            <element signature="method#mouseExited#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#equals#0;class#Neuron#0" expanded="true" />
+            <element signature="e#2605#2606#0" expanded="true" />
+            <element signature="e#2632#2633#0" expanded="true" />
+            <element signature="e#2669#2670#0" expanded="true" />
+            <element signature="e#2701#2702#0" expanded="true" />
+            <element signature="e#2729#2730#0" expanded="true" />
+            <element signature="e#2756#2757#0" expanded="true" />
+            <element signature="e#2793#2794#0" expanded="true" />
+            <element signature="e#2825#2826#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -851,18 +853,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="159" column="16" selection-start="4513" selection-end="4513" vertical-scroll-proportion="0.0" vertical-offset="2703" max-vertical-offset="3808">
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#Neuron#0;class#Neuron#0" expanded="true" />
-            <element signature="method#toString#0;class#Neuron#0" expanded="true" />
-            <element signature="method#hashCode#0;class#Neuron#0" expanded="true" />
-            <element signature="method#select#0;class#Neuron#0" expanded="true" />
-            <element signature="method#deselect#0;class#Neuron#0" expanded="true" />
-            <element signature="method#selectNeuronPair#0;class#Neuron#0" expanded="true" />
-            <element signature="method#deselectAll#0;class#Neuron#0" expanded="true" />
-            <element signature="class#ClickListener#0;class#Neuron#0" expanded="true" />
-            <element signature="method#mouseClicked#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
-            <element signature="method#mouseEntered#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
-            <element signature="method#mouseExited#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#equals#0;class#Neuron#0" expanded="true" />
+            <element signature="e#2605#2606#0" expanded="true" />
+            <element signature="e#2632#2633#0" expanded="true" />
+            <element signature="e#2669#2670#0" expanded="true" />
+            <element signature="e#2701#2702#0" expanded="true" />
+            <element signature="e#2729#2730#0" expanded="true" />
+            <element signature="e#2756#2757#0" expanded="true" />
+            <element signature="e#2793#2794#0" expanded="true" />
+            <element signature="e#2825#2826#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -874,11 +874,18 @@
             <element signature="method#PathFinder#0;class#PathFinder#0" expanded="true" />
             <element signature="method#main#0;class#PathFinder#0" expanded="true" />
             <element signature="method#loadFromFile#0;class#PathFinder#0" expanded="true" />
-            <element signature="e#8343#8381#0" expanded="false" />
+            <element signature="e#8286#8324#0" expanded="false" />
             <element signature="method#saveToFile#0;class#PathFinder#0" expanded="true" />
-            <element signature="e#16051#16107#0" expanded="false" />
+            <element signature="method#editPath#1;class#PathFinder#0" expanded="true" />
+            <element signature="e#15991#16047#0" expanded="false" />
             <element signature="method#setHasStateComponents#0;class#PathFinder#0" expanded="true" />
             <element signature="method#setBg#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#NewNeuronListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#NewNeuronListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#FindPathListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#displayPath#0;class#PathFinder#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -929,18 +936,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="144" column="9" selection-start="4028" selection-end="4028" vertical-scroll-proportion="0.0" vertical-offset="2448" max-vertical-offset="3774">
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#Neuron#0;class#Neuron#0" expanded="true" />
-            <element signature="method#toString#0;class#Neuron#0" expanded="true" />
-            <element signature="method#hashCode#0;class#Neuron#0" expanded="true" />
-            <element signature="method#select#0;class#Neuron#0" expanded="true" />
-            <element signature="method#deselect#0;class#Neuron#0" expanded="true" />
-            <element signature="method#selectNeuronPair#0;class#Neuron#0" expanded="true" />
-            <element signature="method#deselectAll#0;class#Neuron#0" expanded="true" />
-            <element signature="class#ClickListener#0;class#Neuron#0" expanded="true" />
-            <element signature="method#mouseClicked#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
-            <element signature="method#mouseEntered#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
-            <element signature="method#mouseExited#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#equals#0;class#Neuron#0" expanded="true" />
+            <element signature="e#2605#2606#0" expanded="true" />
+            <element signature="e#2632#2633#0" expanded="true" />
+            <element signature="e#2669#2670#0" expanded="true" />
+            <element signature="e#2701#2702#0" expanded="true" />
+            <element signature="e#2729#2730#0" expanded="true" />
+            <element signature="e#2756#2757#0" expanded="true" />
+            <element signature="e#2793#2794#0" expanded="true" />
+            <element signature="e#2825#2826#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -959,18 +964,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="61" selection-start="662" selection-end="662" vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="3145">
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#Neuron#0;class#Neuron#0" expanded="true" />
-            <element signature="method#toString#0;class#Neuron#0" expanded="true" />
-            <element signature="method#hashCode#0;class#Neuron#0" expanded="true" />
-            <element signature="method#select#0;class#Neuron#0" expanded="true" />
-            <element signature="method#deselect#0;class#Neuron#0" expanded="true" />
-            <element signature="method#selectNeuronPair#0;class#Neuron#0" expanded="true" />
-            <element signature="method#deselectAll#0;class#Neuron#0" expanded="true" />
-            <element signature="class#ClickListener#0;class#Neuron#0" expanded="true" />
-            <element signature="method#mouseClicked#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
-            <element signature="method#mouseEntered#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
-            <element signature="method#mouseExited#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#equals#0;class#Neuron#0" expanded="true" />
+            <element signature="e#2605#2606#0" expanded="true" />
+            <element signature="e#2632#2633#0" expanded="true" />
+            <element signature="e#2669#2670#0" expanded="true" />
+            <element signature="e#2701#2702#0" expanded="true" />
+            <element signature="e#2729#2730#0" expanded="true" />
+            <element signature="e#2756#2757#0" expanded="true" />
+            <element signature="e#2793#2794#0" expanded="true" />
+            <element signature="e#2825#2826#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -982,11 +985,18 @@
             <element signature="method#PathFinder#0;class#PathFinder#0" expanded="true" />
             <element signature="method#main#0;class#PathFinder#0" expanded="true" />
             <element signature="method#loadFromFile#0;class#PathFinder#0" expanded="true" />
-            <element signature="e#8343#8381#0" expanded="false" />
+            <element signature="e#8286#8324#0" expanded="false" />
             <element signature="method#saveToFile#0;class#PathFinder#0" expanded="true" />
-            <element signature="e#16051#16107#0" expanded="false" />
+            <element signature="method#editPath#1;class#PathFinder#0" expanded="true" />
+            <element signature="e#15991#16047#0" expanded="false" />
             <element signature="method#setHasStateComponents#0;class#PathFinder#0" expanded="true" />
             <element signature="method#setBg#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#NewNeuronListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#NewNeuronListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#FindPathListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#displayPath#0;class#PathFinder#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1029,18 +1039,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="61" selection-start="662" selection-end="662" vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="3145">
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#Neuron#0;class#Neuron#0" expanded="true" />
-            <element signature="method#toString#0;class#Neuron#0" expanded="true" />
-            <element signature="method#hashCode#0;class#Neuron#0" expanded="true" />
-            <element signature="method#select#0;class#Neuron#0" expanded="true" />
-            <element signature="method#deselect#0;class#Neuron#0" expanded="true" />
-            <element signature="method#selectNeuronPair#0;class#Neuron#0" expanded="true" />
-            <element signature="method#deselectAll#0;class#Neuron#0" expanded="true" />
-            <element signature="class#ClickListener#0;class#Neuron#0" expanded="true" />
-            <element signature="method#mouseClicked#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
-            <element signature="method#mouseEntered#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
-            <element signature="method#mouseExited#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#equals#0;class#Neuron#0" expanded="true" />
+            <element signature="e#2605#2606#0" expanded="true" />
+            <element signature="e#2632#2633#0" expanded="true" />
+            <element signature="e#2669#2670#0" expanded="true" />
+            <element signature="e#2701#2702#0" expanded="true" />
+            <element signature="e#2729#2730#0" expanded="true" />
+            <element signature="e#2756#2757#0" expanded="true" />
+            <element signature="e#2793#2794#0" expanded="true" />
+            <element signature="e#2825#2826#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1052,11 +1060,18 @@
             <element signature="method#PathFinder#0;class#PathFinder#0" expanded="true" />
             <element signature="method#main#0;class#PathFinder#0" expanded="true" />
             <element signature="method#loadFromFile#0;class#PathFinder#0" expanded="true" />
-            <element signature="e#8343#8381#0" expanded="false" />
+            <element signature="e#8286#8324#0" expanded="false" />
             <element signature="method#saveToFile#0;class#PathFinder#0" expanded="true" />
-            <element signature="e#16051#16107#0" expanded="false" />
+            <element signature="method#editPath#1;class#PathFinder#0" expanded="true" />
+            <element signature="e#15991#16047#0" expanded="false" />
             <element signature="method#setHasStateComponents#0;class#PathFinder#0" expanded="true" />
             <element signature="method#setBg#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#NewNeuronListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#NewNeuronListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#FindPathListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#displayPath#0;class#PathFinder#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1130,6 +1145,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphs/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="42" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/graphs/DataHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="23" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
@@ -1144,30 +1166,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphs/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="42" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphs/GraphMethods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="1026" selection-end="1026" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Line.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="21" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="2125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphs/ListGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="5" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="3859">
+        <state line="72" column="21" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
           <folding />
         </state>
       </provider>
@@ -1179,38 +1180,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphs/ListGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="5" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="3859">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphs/GraphMethods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="1026" selection-end="1026" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Neuron.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="0" selection-start="2420" selection-end="2420" vertical-scroll-proportion="0.0" vertical-offset="799" max-vertical-offset="2533">
+        <state line="20" column="65" selection-start="714" selection-end="714" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1547">
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#Neuron#0;class#Neuron#0" expanded="true" />
-            <element signature="method#toString#0;class#Neuron#0" expanded="true" />
-            <element signature="method#hashCode#0;class#Neuron#0" expanded="true" />
-            <element signature="method#select#0;class#Neuron#0" expanded="true" />
-            <element signature="method#deselect#0;class#Neuron#0" expanded="true" />
-            <element signature="method#selectNeuronPair#0;class#Neuron#0" expanded="true" />
-            <element signature="method#deselectAll#0;class#Neuron#0" expanded="true" />
-            <element signature="class#ClickListener#0;class#Neuron#0" expanded="true" />
-            <element signature="method#mouseClicked#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
-            <element signature="method#mouseEntered#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
-            <element signature="method#mouseExited#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#equals#0;class#Neuron#0" expanded="true" />
+            <element signature="e#2605#2606#0" expanded="true" />
+            <element signature="e#2632#2633#0" expanded="true" />
+            <element signature="e#2669#2670#0" expanded="true" />
+            <element signature="e#2701#2702#0" expanded="true" />
+            <element signature="e#2729#2730#0" expanded="true" />
+            <element signature="e#2756#2757#0" expanded="true" />
+            <element signature="e#2793#2794#0" expanded="true" />
+            <element signature="e#2825#2826#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PathFinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="358" column="37" selection-start="15120" selection-end="15120" vertical-scroll-proportion="0.19465649" vertical-offset="3434" max-vertical-offset="4879">
+        <state line="637" column="58" selection-start="27597" selection-end="27597" vertical-scroll-proportion="0.27334082" vertical-offset="5044" max-vertical-offset="6511">
           <folding>
             <element signature="method#PathFinder#0;class#PathFinder#0" expanded="true" />
             <element signature="method#main#0;class#PathFinder#0" expanded="true" />
             <element signature="method#loadFromFile#0;class#PathFinder#0" expanded="true" />
-            <element signature="e#8343#8381#0" expanded="false" />
+            <element signature="e#8286#8324#0" expanded="false" />
             <element signature="method#saveToFile#0;class#PathFinder#0" expanded="true" />
-            <element signature="e#16051#16107#0" expanded="false" />
+            <element signature="method#editPath#1;class#PathFinder#0" expanded="true" />
+            <element signature="e#15991#16047#0" expanded="false" />
             <element signature="method#setHasStateComponents#0;class#PathFinder#0" expanded="true" />
             <element signature="method#setBg#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#NewNeuronListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#NewNeuronListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#FindPathListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#displayPath#0;class#PathFinder#0" expanded="true" />
           </folding>
         </state>
       </provider>
