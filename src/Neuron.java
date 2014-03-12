@@ -82,7 +82,6 @@ public class Neuron extends JComponent implements Serializable{
         if (!(o instanceof Neuron)) return false;
 
         Neuron neuron = (Neuron) o;
-
         return posX == neuron.posX && posY == neuron.posY && edges.equals(neuron.edges) && name.equals(neuron.name);
 
     }

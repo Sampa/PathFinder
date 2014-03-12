@@ -20,8 +20,8 @@ import static javax.swing.JOptionPane.YES_OPTION;
 public class PathFinder extends JFrame implements Serializable{
     private ArrayList<JComponent> hasStateComponents = new ArrayList<>();
     public PathFinder win;
-    public int width = 580;
-    public int height = 95;
+    public int width = 700;
+    public int height = 105;
     public boolean hasChanges;
     private FileNameExtensionFilter filter;
     private boolean loadedFromFile,allowNewNeuron;
@@ -89,30 +89,30 @@ public class PathFinder extends JFrame implements Serializable{
     public static void main(String[] args) {
        PathFinder  win = new PathFinder();
 //            win.loadFromFile("adam.drini");
-            Neuron newestNeuron = new Neuron(50,249,"sthlm",win);
-            Neuron newestNeuron2 = new Neuron(250,350,"polen",win);
-            Neuron newestNeuron3 = new Neuron(350,140,"Helsinki",win);
-            Neuron newestNeuron4 = new Neuron(400,240,"TAllin",win);
-            win.layerPanel.add(newestNeuron,new Integer(1));
-            win.layerPanel.add(newestNeuron2,new Integer(2));
-            win.layerPanel.add(newestNeuron3,new Integer(3));
-            win.layerPanel.add(newestNeuron4,new Integer(4));
-            win.neuronListGraph.add(newestNeuron);
-            win.neuronListGraph.add(newestNeuron2);
-            win.neuronListGraph.add(newestNeuron3);
-            win.neuronListGraph.add(newestNeuron4);
-            win.neuronListGraph.connect(newestNeuron, newestNeuron2, "flyg", 10);
-            win.neuronListGraph.connect(newestNeuron2, newestNeuron3, "båt", 20);
-            win.neuronListGraph.connect(newestNeuron, newestNeuron4, "båt", 20);
-            win.neuronListGraph.connect(newestNeuron3, newestNeuron4, "båt", 20);
-            win.addLine("invokeOnLineClick", new Color(60, 118, 61), win.neuronListGraph, win.neuronListGraph.getNeuronPair(newestNeuron, newestNeuron2));
-            win.addLine("invokeOnLineClick", new Color(60, 118, 61), win.neuronListGraph, win.neuronListGraph.getNeuronPair(newestNeuron2, newestNeuron3));
-            win.addLine("invokeOnLineClick", new Color(60, 118, 61), win.neuronListGraph,win.neuronListGraph.getNeuronPair(newestNeuron,newestNeuron4));
-            win.addLine("invokeOnLineClick", new Color(60, 118, 61), win.neuronListGraph,win.neuronListGraph.getNeuronPair(newestNeuron3, newestNeuron4));
-            win.setBg("map.jpg");
-            //win.saveAs();
-        win.pack();
-        win.repaint();
+//            Neuron newestNeuron = new Neuron(50,249,"sthlm",win);
+//            Neuron newestNeuron2 = new Neuron(250,350,"polen",win);
+//            Neuron newestNeuron3 = new Neuron(350,140,"Helsinki",win);
+//            Neuron newestNeuron4 = new Neuron(400,240,"TAllin",win);
+//            win.layerPanel.add(newestNeuron,new Integer(1));
+//            win.layerPanel.add(newestNeuron2,new Integer(2));
+//            win.layerPanel.add(newestNeuron3,new Integer(3));
+//            win.layerPanel.add(newestNeuron4,new Integer(4));
+//            win.neuronListGraph.add(newestNeuron);
+//            win.neuronListGraph.add(newestNeuron2);
+//            win.neuronListGraph.add(newestNeuron3);
+//            win.neuronListGraph.add(newestNeuron4);
+//            win.neuronListGraph.connect(newestNeuron, newestNeuron2, "flyg", 10);
+//            win.neuronListGraph.connect(newestNeuron2, newestNeuron3, "båt", 20);
+//            win.neuronListGraph.connect(newestNeuron, newestNeuron4, "båt", 20);
+//            win.neuronListGraph.connect(newestNeuron3, newestNeuron4, "båt", 20);
+//            win.addLine("invokeOnLineClick", new Color(60, 118, 61), win.neuronListGraph, win.neuronListGraph.getNeuronPair(newestNeuron, newestNeuron2));
+//            win.addLine("invokeOnLineClick", new Color(60, 118, 61), win.neuronListGraph, win.neuronListGraph.getNeuronPair(newestNeuron2, newestNeuron3));
+//            win.addLine("invokeOnLineClick", new Color(60, 118, 61), win.neuronListGraph,win.neuronListGraph.getNeuronPair(newestNeuron,newestNeuron4));
+//            win.addLine("invokeOnLineClick", new Color(60, 118, 61), win.neuronListGraph,win.neuronListGraph.getNeuronPair(newestNeuron3, newestNeuron4));
+//            win.setBg("map.jpg");
+//            //win.saveAs();
+//        win.pack();
+//        win.repaint();
 
     }
 
@@ -368,7 +368,7 @@ public class PathFinder extends JFrame implements Serializable{
         newPathButton.setMnemonic(KeyEvent.VK_N);
         showPathButton.setMnemonic(KeyEvent.VK_V);
         newNeuronButton.setMnemonic(KeyEvent.VK_P);
-        menuPanel.setLayout(new FlowLayout());
+        menuPanel.setLayout(new GridLayout(1,5));
         menuPanel.add(findPathButton);
         menuPanel.add(editPathButton);
         menuPanel.add(newPathButton);
@@ -400,6 +400,7 @@ public class PathFinder extends JFrame implements Serializable{
         hasChanges = true;
         width = bg.getWidth() + 15;
         height = bg.getHeight() + 99;//fixa marginalerna
+        width = Math.max(width,700);
         setSize(width, height);//fixa marginalerna
         setMinimumSize(new Dimension(width, height));
         disableAllStateItems(); //make sure all is false but not newNeuron actions
