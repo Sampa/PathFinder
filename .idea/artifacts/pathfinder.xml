@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="pathfinder">
+    <output-path>$PROJECT_DIR$/out/artifacts/pathfinder</output-path>
+    <root id="archive" name="pathfinder.jar" />
+  </artifact>
+</component>

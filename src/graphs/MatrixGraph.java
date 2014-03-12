@@ -7,16 +7,16 @@ import java.util.List;
 /**
  * Created by Happyjuiced on 2014-02-28.
  */
-public class MatrixGraph<TYPE> implements Graph<TYPE>, Serializable {
+public class MatrixGraph<TYPE> extends GraphMethods<TYPE> implements Graph<TYPE>, Serializable {
 
     @Override
     public boolean pathExists(TYPE from, TYPE to) {
-        return GraphMethods.pathExists(from,to,this);
+        return pathExists(from, to, this);
     }
 
     @Override
-    public List<TYPE> getPath(TYPE from, TYPE to) {
-        return GraphMethods.getPath(from,to,this);
+    public List<Edge> getPath(TYPE from, TYPE to) {
+        return getPath(from, to, this);
     }
 
     @Override
@@ -26,15 +26,15 @@ public class MatrixGraph<TYPE> implements Graph<TYPE>, Serializable {
 
     @Override
     public List<Edge> getEdgesFrom(TYPE neuron) {
-        return null;
+        return getEdgesFrom(neuron);
     }
+
 
     @Override
     public Edge getEdgeBetween(NeuronPair np) {
         return null;
     }
 
-    @Override
     public Edge getEdgeBetween(TYPE n1, TYPE n2) {
         return null;
     }

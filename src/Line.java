@@ -24,10 +24,12 @@ public class Line extends JComponent implements Serializable {
     private boolean defaultStartCorner;
     public NeuronPair neuronPair;
     public Graph graph;
+    public PathFinder win;
 
-    public Line(JFrame surface,String invokeOnClick, Color lineColor, Graph graph,NeuronPair np) {
+    public Line(PathFinder surface,String invokeOnClick, Color lineColor, Graph graph,NeuronPair np) {
         this.neuronPair = np;
         this.graph = graph;
+        this.win = surface;
         Neuron one = (Neuron)np.getN1();
         Neuron two = (Neuron)np.getN2();
         startX = one.getX();
@@ -50,22 +52,29 @@ public class Line extends JComponent implements Serializable {
         if((endX<startX)&&(endY>startY))
             defaultStartCorner = false;
         //else we can risk drawing lines extremly thin or even 0px height/width if nodes are close in X/Y angle
-        if(width<5)
-            width=5;
-        if(height<5)
-            height=5;
+        width = Math.max(5,width);
+        height = Math.max(5,height);
         setBounds(minX, minY, width, height);
 
         //for listeners
-        robot = null;
         pointer = MouseInfo.getPointerInfo();
         coord = pointer.getLocation();
         coord = pointer.getLocation();
         addMouseListener(new lineMouseListener());
         addMouseMotionListener(new lineMouseListener());
     }
+
+    public void setPointer(PointerInfo pointer) {
+        this.pointer = pointer;
+    }
+    public void prepareForSave() {
+        pointer = null;
+        robot = null;
+        coord = null;
+    }
+
     public void performAction() throws NoSuchMethodException {
-        PathFinder.invokeOnLineClick(neuronPair);
+       PathFinder.invokeOnLineClick(neuronPair,win);
     }
     @Override
     public void paintComponent(Graphics g) {

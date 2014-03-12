@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Sampa on 2013-12-26.
  */
-public class ListGraph<TYPE> implements Graph<TYPE>, Serializable {
+public class ListGraph<TYPE> extends GraphMethods<TYPE> implements Graph<TYPE>, Serializable {
     @Override
     public String toString() {
         return "ListGraph{" +
@@ -58,12 +58,12 @@ public class ListGraph<TYPE> implements Graph<TYPE>, Serializable {
     @Override
     public boolean pathExists(TYPE from, TYPE to) {
 
-        return GraphMethods.pathExists(from,to,this);
+        return pathExists(from,to,this);
     }
 
     @Override
-    public List<TYPE> getPath(TYPE from, TYPE to) {
-        return GraphMethods.getPath(from,to,this);
+    public List<Edge> getPath(TYPE from, TYPE to) {
+        return getPath(from,to,this);
     }
 
     public List<Edge> getEdgesFrom(TYPE neuron){

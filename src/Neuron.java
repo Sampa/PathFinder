@@ -22,11 +22,12 @@ public class Neuron extends JComponent implements Serializable{
     private JLabel label;
     private LinkedList<?> edges = new LinkedList();
     private ClickListener cl;
-
-    public Neuron(int posX, int posY, String name,JFrame pf) {
+    private PathFinder win;
+    public Neuron(int posX, int posY, String name,PathFinder pf) {
         this.posX = posX;
         this.posY = posY;
         this.name = name;
+        win = pf;
         selected = false;
         cl = new ClickListener();
         setLayout(new BorderLayout());
@@ -142,12 +143,11 @@ public class Neuron extends JComponent implements Serializable{
         panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
         setSelectedNeuronCount(neuronCount + 1);
         selectedNeurons.add(this);
-        System.out.print(getSelectedNeuronCount());
-        System.out.println(Neuron.selectedNeurons.toString());
         if (getSelectedNeuronCount() == 2) {
-            PathFinder.enableAllStateItems();
+            win.enableAllStateItems();
         }
     }
+
     public void deselect(){
         int neuronCount = getSelectedNeuronCount();
         panel.setBackground(Color.BLUE);
@@ -155,7 +155,7 @@ public class Neuron extends JComponent implements Serializable{
         setSelectedNeuronCount(neuronCount - 1);
         selectedNeurons.remove(this);
         if (getSelectedNeuronCount() < 2) {
-            PathFinder.disableAllStateItems();
+            win.disableAllStateItems();
         }
         selected = false;
     }
@@ -166,12 +166,8 @@ public class Neuron extends JComponent implements Serializable{
             try {
                 n1.select();
                 n2.select();
-            } catch (Exception e) {
-                System.out.print("haha");
-            }
-          }else{
-              System.out.print("annat ahha");
-          }
+            } catch (Exception e) {}
+          }else{}
     }
     public static boolean deselectAll(){
         //lite onödigt stor men failsafe med loop och try catch iaf

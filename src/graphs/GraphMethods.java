@@ -1,9 +1,10 @@
 package graphs;
+import java.io.Serializable;
 import java.util.*;
 /**
  * Created by Sampa on 2013-12-26.
  */
-public class GraphMethods{
+public class GraphMethods<TYPE> implements Serializable{
 	public static int getTotalPathTime(List o ){
 		int time = 0;
 		for (int i = 0; i < o.size(); i++) {
@@ -14,7 +15,7 @@ public class GraphMethods{
 		}
 		return time;
 	}
-	public static <TYPE>  boolean pathExists(TYPE from,TYPE to, Graph graph){
+	public  boolean pathExists(TYPE from,TYPE to, Graph graph){
 		// if(!graph.neuronsExist(from,to))
 //          return false; // early exit if the neurons isn't in the graph
 		NeuronPair<TYPE> temp  = graph.getNeuronPair(from, to);
@@ -25,7 +26,7 @@ public class GraphMethods{
 		depthFirstSearch(from,visitedNeurons,graph);
         return visitedNeurons.contains(to);
 	}
-	private static <TYPE> void depthFirstSearch(TYPE neuron, HashSet<TYPE> visitedNeurons, Graph graph){
+	private void depthFirstSearch(TYPE neuron, HashSet<TYPE> visitedNeurons, Graph graph){
 		visitedNeurons.add(neuron);
 		List<Edge> list = graph.getEdgesFrom(neuron);
 		for (int i = 0; i <list.size() ; i++) {
@@ -38,7 +39,7 @@ public class GraphMethods{
 			}
 		}
 	}
-	public static <TYPE>  List<Edge> getPath(TYPE from, TYPE to,Graph graph){
+	public List<Edge> getPath(TYPE from, TYPE to,Graph graph){
 		List<Edge> path = new ArrayList<>(); // we prepare this to build it before returning it
 		if(!pathExists(from,to,graph))//early exit
 			return null;

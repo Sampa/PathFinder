@@ -3,17 +3,24 @@
   <component name="AnalysisUIOptions">
     <option name="SCOPE_TYPE" value="3" />
   </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="pathfinder" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca4f2b75-b3a7-4b2e-968b-4357a80ed71c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/graphs/MatrixGraph.java" />
+    <list default="true" id="ca4f2b75-b3a7-4b2e-968b-4357a80ed71c" name="Default" comment="//matrixgraph början&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/pathfinder.xml" />
+      <change type="DELETED" beforePath="D:\Programmering\Java\PathFinder\src\aoe.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adam.drini" afterPath="$PROJECT_DIR$/adam.drini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BgImage.java" afterPath="$PROJECT_DIR$/src/BgImage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graphs/Graph.java" afterPath="$PROJECT_DIR$/src/graphs/Graph.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graphs/GraphMethods.java" afterPath="$PROJECT_DIR$/src/graphs/GraphMethods.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Line.java" afterPath="$PROJECT_DIR$/src/Line.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graphs/ListGraph.java" afterPath="$PROJECT_DIR$/src/graphs/ListGraph.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graphs/MatrixGraph.java" afterPath="$PROJECT_DIR$/src/graphs/MatrixGraph.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Neuron.java" afterPath="$PROJECT_DIR$/src/Neuron.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PathFinder.java" afterPath="$PROJECT_DIR$/src/PathFinder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/myUtil/Printing.java" afterPath="$PROJECT_DIR$/src/myUtil/Printing.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PathFinder.iws" />
@@ -25,6 +32,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="Commander">
+    <leftPanel />
+    <rightPanel />
+    <splitter proportion="0.5" />
+  </component>
   <component name="CompilerWorkspaceConfiguration">
     <option name="MAKE_PROJECT_ON_SAVE" value="true" />
     <option name="PARALLEL_COMPILATION" value="true" />
@@ -93,13 +105,200 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PathFinder.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="PathFinder.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PathFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="819" column="0" selection-start="34477" selection-end="34477" vertical-scroll-proportion="0.0" vertical-offset="989" max-vertical-offset="1615">
+            <state line="112" column="25" selection-start="5186" selection-end="5186" vertical-scroll-proportion="0.3580931" vertical-offset="714" max-vertical-offset="8874">
               <folding>
-                <element signature="e#8398#8436#0" expanded="false" />
-                <element signature="e#15682#15738#0" expanded="false" />
+                <element signature="method#loadFromFile#0;class#PathFinder#0" expanded="true" />
+                <element signature="method#saveToFile#0;class#PathFinder#0" expanded="true" />
+                <element signature="method#save#0;class#PathFinder#0" expanded="true" />
+                <element signature="method#saveAs#0;class#PathFinder#0" expanded="true" />
+                <element signature="method#changeAllStateComponents#0;class#PathFinder#0" expanded="true" />
+                <element signature="method#buildArchieve#0;class#PathFinder#0" expanded="true" />
+                <element signature="method#setHasStateComponents#1;class#PathFinder#0" expanded="true" />
+                <element signature="method#setBg#0;class#PathFinder#0" expanded="true" />
+                <element signature="method#createNewPath#0;class#PathFinder#0" expanded="true" />
+                <element signature="method#confirmExit#4;class#PathFinder#0" expanded="true" />
+                <element signature="method#removeListeners#0;class#PathFinder#0" expanded="true" />
+                <element signature="class#OpenListener#0;class#PathFinder#0" expanded="true" />
+                <element signature="method#actionPerformed#0;class#OpenListener#0;class#PathFinder#0" expanded="true" />
+                <element signature="class#SaveListener#0;class#PathFinder#0" expanded="true" />
+                <element signature="method#actionPerformed#0;class#SaveListener#0;class#PathFinder#0" expanded="true" />
+                <element signature="class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+                <element signature="method#actionPerformed#0;class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+                <element signature="class#myMouseListener#0;class#PathFinder#0" expanded="true" />
+                <element signature="method#mouseClicked#0;class#myMouseListener#0;class#PathFinder#0" expanded="true" />
+                <element signature="class#MyWindowListener#0;class#PathFinder#0" expanded="true" />
+                <element signature="method#handleExit#0;class#MyWindowListener#0;class#PathFinder#0" expanded="true" />
+                <element signature="class#FindPathListener#0;class#PathFinder#0" expanded="true" />
+                <element signature="method#actionPerformed#0;class#FindPathListener#0;class#PathFinder#0" expanded="true" />
+                <element signature="class#ExitListener#0;class#PathFinder#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Line.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Line.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="72" column="21" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="2125">
+              <folding>
+                <element signature="method#Line#0;class#Line#0" expanded="true" />
+                <element signature="e#2287#2288#0" expanded="true" />
+                <element signature="e#2325#2326#0" expanded="true" />
+                <element signature="method#performAction#0;class#Line#0" expanded="true" />
+                <element signature="method#paintComponent#0;class#Line#0" expanded="true" />
+                <element signature="class#lineMouseListener#0;class#Line#0" expanded="true" />
+                <element signature="method#mouseClicked#0;class#lineMouseListener#0;class#Line#0" expanded="true" />
+                <element signature="method#checkPixel#0;class#lineMouseListener#0;class#Line#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BgImage.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BgImage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="24" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#BgImage#0;class#BgImage#0" expanded="true" />
+                <element signature="method#paintComponent#0;class#BgImage#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BufferedImage.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://F:/Program Files (x86)/Java/jdk1.7.0_45/src.zip!/java/awt/image/BufferedImage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="3" selection-start="1805" selection-end="1805" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4505">
+              <folding>
+                <element signature="e#0#64013#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="docComment;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;field#TYPE_CUSTOM#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;field#TYPE_INT_RGB#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;field#TYPE_INT_ARGB#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;field#TYPE_INT_ARGB_PRE#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;field#TYPE_INT_BGR#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;field#TYPE_3BYTE_BGR#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;field#TYPE_4BYTE_ABGR#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;field#TYPE_4BYTE_ABGR_PRE#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;field#TYPE_USHORT_565_RGB#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;field#TYPE_USHORT_555_RGB#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;field#TYPE_BYTE_GRAY#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;field#TYPE_USHORT_GRAY#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;field#TYPE_BYTE_BINARY#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;field#TYPE_BYTE_INDEXED#0;class#BufferedImage#0" expanded="false" />
+                <element signature="initializer##0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#BufferedImage#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#BufferedImage#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#BufferedImage#1;class#BufferedImage#0" expanded="false" />
+                <element signature="method#BufferedImage#1;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#BufferedImage#2;class#BufferedImage#0" expanded="false" />
+                <element signature="method#BufferedImage#2;class#BufferedImage#0" expanded="false" />
+                <element signature="method#isStandard#0;class#BufferedImage#0" expanded="false" />
+                <element signature="e#33648#34023#0" expanded="false" />
+                <element signature="e#34012#34013#0" expanded="false" />
+                <element signature="docComment;method#getType#0;class#BufferedImage#0" expanded="false" />
+                <element signature="e#34721#34722#0" expanded="false" />
+                <element signature="e#34753#34754#0" expanded="false" />
+                <element signature="docComment;method#getColorModel#0;class#BufferedImage#0" expanded="false" />
+                <element signature="e#34941#34942#0" expanded="false" />
+                <element signature="e#34974#34975#0" expanded="false" />
+                <element signature="docComment;method#getRaster#0;class#BufferedImage#0" expanded="false" />
+                <element signature="e#35166#35167#0" expanded="false" />
+                <element signature="e#35195#35196#0" expanded="false" />
+                <element signature="docComment;method#getAlphaRaster#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getAlphaRaster#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getRGB#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getRGB#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getRGB#1;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getRGB#1;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#setRGB#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#setRGB#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#setRGB#1;class#BufferedImage#0" expanded="false" />
+                <element signature="method#setRGB#1;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getWidth#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getWidth#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getHeight#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getHeight#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getWidth#1;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getWidth#1;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getHeight#1;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getHeight#1;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getSource#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getSource#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getProperty#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getProperty#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getProperty#1;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getProperty#1;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getGraphics#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getGraphics#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#createGraphics#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#createGraphics#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getSubimage#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getSubimage#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#isAlphaPremultiplied#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#isAlphaPremultiplied#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#coerceData#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#coerceData#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#toString#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#toString#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getSources#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getSources#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getPropertyNames#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getPropertyNames#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getMinX#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getMinX#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getMinY#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getMinY#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getSampleModel#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getSampleModel#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getNumXTiles#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getNumXTiles#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getNumYTiles#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getNumYTiles#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getMinTileX#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getMinTileX#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getMinTileY#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getMinTileY#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getTileWidth#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getTileWidth#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getTileHeight#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getTileHeight#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getTileGridXOffset#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getTileGridXOffset#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getTileGridYOffset#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getTileGridYOffset#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getTile#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getTile#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getData#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getData#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getData#1;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getData#1;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#copyData#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#copyData#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#setData#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#setData#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#addTileObserver#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#addTileObserver#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#removeTileObserver#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#removeTileObserver#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#isTileWritable#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#isTileWritable#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getWritableTileIndices#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getWritableTileIndices#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#hasTileWriters#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#hasTileWriters#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getWritableTile#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getWritableTile#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#releaseWritableTile#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#releaseWritableTile#0;class#BufferedImage#0" expanded="false" />
+                <element signature="docComment;method#getTransparency#0;class#BufferedImage#0" expanded="false" />
+                <element signature="method#getTransparency#0;class#BufferedImage#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -108,39 +307,41 @@
       <file leaf-file-name="ListGraph.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graphs/ListGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="16" selection-start="1791" selection-end="1791" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1224">
-              <folding>
-                <element signature="method#ListGraph#0;class#ListGraph#0" expanded="true" />
-                <element signature="method#pathExists#0;class#ListGraph#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MatrixGraph.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/graphs/MatrixGraph.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="20" selection-start="377" selection-end="377" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="884">
+            <state line="22" column="5" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="3859">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="docComment;class#MatrixGraph#0" expanded="true" />
-                <element signature="method#pathExists#0;class#MatrixGraph#0" expanded="true" />
-                <element signature="method#getPath#0;class#MatrixGraph#0" expanded="true" />
-                <element signature="method#getNeuronPair#0;class#MatrixGraph#0" expanded="true" />
-                <element signature="method#getEdgesFrom#0;class#MatrixGraph#0" expanded="true" />
-                <element signature="method#getEdgeBetween#0;class#MatrixGraph#0" expanded="true" />
-                <element signature="method#getEdgeBetween#1;class#MatrixGraph#0" expanded="true" />
-                <element signature="method#getNodes#0;class#MatrixGraph#0" expanded="true" />
+                <element signature="docComment;class#ListGraph#0" expanded="true" />
+                <element signature="method#toString#0;class#ListGraph#0" expanded="true" />
+                <element signature="method#ListGraph#0;class#ListGraph#0" expanded="true" />
+                <element signature="e#1283#1284#0" expanded="true" />
+                <element signature="e#1316#1317#0" expanded="true" />
+                <element signature="e#1387#1388#0" expanded="true" />
+                <element signature="e#1431#1432#0" expanded="true" />
+                <element signature="e#1482#1483#0" expanded="true" />
+                <element signature="e#1510#1511#0" expanded="true" />
+                <element signature="e#1571#1572#0" expanded="true" />
+                <element signature="e#1605#1606#0" expanded="true" />
+                <element signature="method#pathExists#0;class#ListGraph#0" expanded="true" />
+                <element signature="method#getPath#0;class#ListGraph#0" expanded="true" />
+                <element signature="method#getEdgesFrom#0;class#ListGraph#0" expanded="true" />
+                <element signature="method#add#0;class#ListGraph#0" expanded="true" />
+                <element signature="method#neuronsExist#0;class#ListGraph#0" expanded="true" />
+                <element signature="method#getNeuronPair#0;class#ListGraph#0" expanded="true" />
+                <element signature="method#modCheck#0;class#ListGraph#0" expanded="true" />
+                <element signature="method#connect#0;class#ListGraph#0" expanded="true" />
+                <element signature="e#3579#3580#0" expanded="true" />
+                <element signature="e#3612#3613#0" expanded="true" />
+                <element signature="method#getNodesAsList#0;class#ListGraph#0" expanded="true" />
+                <element signature="method#getEdgeBetween#0;class#ListGraph#0" expanded="true" />
+                <element signature="method#getEdgeBetween#1;class#ListGraph#0" expanded="true" />
+                <element signature="method#showEdgeDialog#0;class#ListGraph#0" expanded="true" />
+                <element signature="method#showEditEdgeDialog#0;class#ListGraph#0" expanded="true" />
+                <element signature="method#showViewEdgeDialog#0;class#ListGraph#0" expanded="true" />
+                <element signature="method#disconnect#0;class#ListGraph#0" expanded="true" />
+                <element signature="method#remove#0;class#ListGraph#0" expanded="true" />
+                <element signature="method#setConnectionWeight#0;class#ListGraph#0" expanded="true" />
+                <element signature="method#findEdge#0;class#ListGraph#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Graph.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/graphs/Graph.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="0" selection-start="358" selection-end="358" vertical-scroll-proportion="0.47103274" vertical-offset="0" max-vertical-offset="397">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -148,11 +349,9 @@
       <file leaf-file-name="GraphMethods.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graphs/GraphMethods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="18" selection-start="351" selection-end="357" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1989">
+            <state line="129" column="53" selection-start="5187" selection-end="5187" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1326">
               <folding>
-                <element signature="method#depthFirstSearch#0;class#GraphMethods#0" expanded="true" />
-                <element signature="method#getPath#0;class#GraphMethods#0" expanded="true" />
-                <element signature="method#buildPath#0;class#GraphMethods#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -170,11 +369,8 @@
       <file leaf-file-name="Edge.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graphs/Edge.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="64" selection-start="348" selection-end="348" vertical-scroll-proportion="0.0" vertical-offset="145" max-vertical-offset="748">
-              <folding>
-                <element signature="method#Edge#0;class#Edge#0" expanded="true" />
-                <element signature="method#setWeight#0;class#Edge#0" expanded="true" />
-              </folding>
+            <state line="14" column="64" selection-start="348" selection-end="348" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -182,8 +378,16 @@
       <file leaf-file-name="Neuron.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Neuron.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="144" column="9" selection-start="4028" selection-end="4028" vertical-scroll-proportion="0.0" vertical-offset="2448" max-vertical-offset="3774">
-              <folding />
+            <state line="31" column="33" selection-start="951" selection-end="951" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2176">
+              <folding>
+                <element signature="method#select#0;class#Neuron#0" expanded="true" />
+                <element signature="method#deselect#0;class#Neuron#0" expanded="true" />
+                <element signature="method#selectNeuronPair#0;class#Neuron#0" expanded="true" />
+                <element signature="class#ClickListener#0;class#Neuron#0" expanded="true" />
+                <element signature="method#mouseClicked#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+                <element signature="method#mouseEntered#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+                <element signature="method#mouseExited#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -217,7 +421,6 @@
         <option value="$PROJECT_DIR$/src/connectionForm.java" />
         <option value="$PROJECT_DIR$/src/NewConForm.form" />
         <option value="$PROJECT_DIR$/src/NewConForm.java" />
-        <option value="$PROJECT_DIR$/src/BgImage.java" />
         <option value="$PROJECT_DIR$/src/graphs/DataHolder.java" />
         <option value="$USER_HOME$/SkyDrive/Prog/Java/PathFindera/src/Line.java" />
         <option value="$PROJECT_DIR$/src/aoe.java" />
@@ -226,21 +429,24 @@
         <option value="$PROJECT_DIR$/src/graphs/NeuronPair.java" />
         <option value="$PROJECT_DIR$/src/graphs/Edge.java" />
         <option value="$PROJECT_DIR$/src/myUtil/Printing.java" />
-        <option value="$PROJECT_DIR$/src/Line.java" />
-        <option value="$PROJECT_DIR$/src/Neuron.java" />
-        <option value="$PROJECT_DIR$/src/PathFinder.java" />
-        <option value="$PROJECT_DIR$/src/graphs/MatrixGraph.java" />
-        <option value="$PROJECT_DIR$/src/graphs/ListGraph.java" />
-        <option value="$PROJECT_DIR$/src/graphs/GraphMethods.java" />
         <option value="$PROJECT_DIR$/src/graphs/Graph.java" />
+        <option value="$PROJECT_DIR$/src/graphs/MatrixGraph.java" />
+        <option value="$PROJECT_DIR$/src/graphs/GraphMethods.java" />
+        <option value="$PROJECT_DIR$/src/Neuron.java" />
+        <option value="$PROJECT_DIR$/src/PointerInfoSerializeable.java" />
+        <option value="$PROJECT_DIR$/src/PointerInfoSerializable.java" />
+        <option value="$PROJECT_DIR$/src/Line.java" />
+        <option value="$PROJECT_DIR$/src/graphs/ListGraph.java" />
+        <option value="$PROJECT_DIR$/src/BgImage.java" />
+        <option value="$PROJECT_DIR$/src/PathFinder.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1240" />
-    <option name="height" value="784" />
+    <option name="x" value="-1928" />
+    <option name="y" value="54" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -284,6 +490,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -330,13 +537,30 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="myUtil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PathFinder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PathFinder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="graphs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Problems" />
         <subPane subId="Project Files">
@@ -361,12 +585,12 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="options.lastSelected" value="preferences.keymap" />
+    <property name="options.lastSelected" value="MavenSettings" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.39015606" />
     <property name="options.searchVisible" value="true" />
     <property name="recentsLimit" value="5" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/PathFinder.java" />
@@ -459,6 +683,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -484,19 +721,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -627,7 +851,11 @@
       <created>1390182179955</created>
       <updated>1390182179955</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="//matrixgraph början">
+      <created>1393669815851</created>
+      <updated>1393669815852</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -651,7 +879,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1240" height="784" extended-state="6" />
+    <frame x="-1928" y="54" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -659,13 +887,15 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32750398" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32955405" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32750398" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32731137" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32731137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2494331" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3974359" sideWeight="0.4988662" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31891027" sideWeight="0.3197279" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Facebook Chat" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.15208334" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Facebook Chat" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="true" weight="0.14064997" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" x="1494" y="41" width="264" height="941" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33368757" sideWeight="0.4988662" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3338633" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24929498" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -673,43 +903,42 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="eSnippet Pro" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18797629" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29411766" sideWeight="0.6802721" order="2" side_tool="false" content_ui="tabs" x="209" y="707" width="1180" height="375" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17314865" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.29330498" sideWeight="0.6802721" order="2" side_tool="false" content_ui="tabs" x="255" y="58" width="1271" height="995" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21995465" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3354531" sideWeight="0.4988662" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39903846" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21995465" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21995465" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943678" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32750398" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2494331" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31891027" sideWeight="0.3197279" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3275862" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3338633" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26077098" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34280938" sideWeight="0.6802721" order="2" side_tool="false" content_ui="tabs" x="209" y="707" width="1180" height="375" />
+      <window_info id="eSnippet Pro" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18797629" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29411766" sideWeight="0.6802721" order="2" side_tool="false" content_ui="tabs" x="209" y="707" width="1180" height="375" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852563" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32750398" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32955405" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32750398" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3974359" sideWeight="0.4988662" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Facebook Chat" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.16694868" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33779263" sideWeight="0.4988662" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Facebook Chat" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.15208334" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3354531" sideWeight="0.4988662" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24929498" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39903846" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -727,7 +956,8 @@
     </option>
     <MESSAGE value="//fixa spara ladda map och ny plats buggar samt korrekterade selection vid klick av linje" />
     <MESSAGE value="//fixa spara ladda map och ny plats buggar samt korrekterade selection vid klick av linje&#10;//mer korrekt inläsning" />
-    <option name="LAST_COMMIT_MESSAGE" value="//fixa spara ladda map och ny plats buggar samt korrekterade selection vid klick av linje&#10;//mer korrekt inläsning" />
+    <MESSAGE value="//matrixgraph början" />
+    <option name="LAST_COMMIT_MESSAGE" value="//matrixgraph början" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -737,6 +967,159 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/graphs/DataHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="23" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="867">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphs/Edge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="64" selection-start="348" selection-end="348" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1037">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Neuron.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="159" column="16" selection-start="4513" selection-end="4513" vertical-scroll-proportion="0.0" vertical-offset="2703" max-vertical-offset="3808">
+          <folding>
+            <element signature="method#select#0;class#Neuron#0" expanded="true" />
+            <element signature="method#deselect#0;class#Neuron#0" expanded="true" />
+            <element signature="method#selectNeuronPair#0;class#Neuron#0" expanded="true" />
+            <element signature="class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#mouseClicked#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#mouseEntered#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#mouseExited#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PathFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="819" column="0" selection-start="34477" selection-end="34477" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="14025">
+          <folding>
+            <element signature="method#loadFromFile#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#saveToFile#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#save#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#saveAs#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#changeAllStateComponents#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#buildArchieve#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#setHasStateComponents#1;class#PathFinder#0" expanded="true" />
+            <element signature="method#setBg#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#createNewPath#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#confirmExit#4;class#PathFinder#0" expanded="true" />
+            <element signature="method#removeListeners#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#OpenListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#OpenListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#SaveListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#SaveListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#myMouseListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#mouseClicked#0;class#myMouseListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#MyWindowListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#handleExit#0;class#MyWindowListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#FindPathListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#FindPathListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#ExitListener#0;class#PathFinder#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphs/ListGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="16" selection-start="1791" selection-end="1791" vertical-scroll-proportion="0.0" vertical-offset="1105" max-vertical-offset="3859">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#ListGraph#0" expanded="true" />
+            <element signature="method#toString#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#ListGraph#0;class#ListGraph#0" expanded="true" />
+            <element signature="e#1283#1284#0" expanded="true" />
+            <element signature="e#1316#1317#0" expanded="true" />
+            <element signature="e#1387#1388#0" expanded="true" />
+            <element signature="e#1431#1432#0" expanded="true" />
+            <element signature="e#1482#1483#0" expanded="true" />
+            <element signature="e#1510#1511#0" expanded="true" />
+            <element signature="e#1571#1572#0" expanded="true" />
+            <element signature="e#1605#1606#0" expanded="true" />
+            <element signature="method#pathExists#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#getPath#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#getEdgesFrom#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#add#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#neuronsExist#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#getNeuronPair#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#modCheck#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#connect#0;class#ListGraph#0" expanded="true" />
+            <element signature="e#3579#3580#0" expanded="true" />
+            <element signature="e#3612#3613#0" expanded="true" />
+            <element signature="method#getNodesAsList#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#getEdgeBetween#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#getEdgeBetween#1;class#ListGraph#0" expanded="true" />
+            <element signature="method#showEdgeDialog#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#showEditEdgeDialog#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#showViewEdgeDialog#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#disconnect#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#remove#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#setConnectionWeight#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#findEdge#0;class#ListGraph#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphs/MatrixGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="20" selection-start="377" selection-end="377" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="884">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphs/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="358" selection-end="358" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphs/GraphMethods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="18" selection-start="351" selection-end="357" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="3213">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphs/DataHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="23" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="867">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphs/Edge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="64" selection-start="348" selection-end="348" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1037">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Neuron.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="144" column="9" selection-start="4028" selection-end="4028" vertical-scroll-proportion="0.0" vertical-offset="2448" max-vertical-offset="3774">
+          <folding>
+            <element signature="method#select#0;class#Neuron#0" expanded="true" />
+            <element signature="method#deselect#0;class#Neuron#0" expanded="true" />
+            <element signature="method#selectNeuronPair#0;class#Neuron#0" expanded="true" />
+            <element signature="class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#mouseClicked#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#mouseEntered#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#mouseExited#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/graphs/GraphMethods.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="0" selection-start="1062" selection-end="1062" vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="3247" />
@@ -750,7 +1133,15 @@
     <entry file="file://$PROJECT_DIR$/src/Neuron.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="61" selection-start="662" selection-end="662" vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="3145">
-          <folding />
+          <folding>
+            <element signature="method#select#0;class#Neuron#0" expanded="true" />
+            <element signature="method#deselect#0;class#Neuron#0" expanded="true" />
+            <element signature="method#selectNeuronPair#0;class#Neuron#0" expanded="true" />
+            <element signature="class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#mouseClicked#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#mouseEntered#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#mouseExited#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -758,8 +1149,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="529" column="36" selection-start="21826" selection-end="21826" vertical-scroll-proportion="0.0" vertical-offset="8993" max-vertical-offset="9095">
           <folding>
-            <element signature="e#8398#8436#0" expanded="false" />
-            <element signature="e#15682#15738#0" expanded="false" />
+            <element signature="method#loadFromFile#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#saveToFile#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#save#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#saveAs#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#changeAllStateComponents#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#buildArchieve#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#setHasStateComponents#1;class#PathFinder#0" expanded="true" />
+            <element signature="method#setBg#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#createNewPath#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#confirmExit#4;class#PathFinder#0" expanded="true" />
+            <element signature="method#removeListeners#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#OpenListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#OpenListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#SaveListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#SaveListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#myMouseListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#mouseClicked#0;class#myMouseListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#MyWindowListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#handleExit#0;class#MyWindowListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#FindPathListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#FindPathListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#ExitListener#0;class#PathFinder#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -767,7 +1180,11 @@
     <entry file="file://$PROJECT_DIR$/src/BgImage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="867">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#BgImage#0;class#BgImage#0" expanded="true" />
+            <element signature="method#paintComponent#0;class#BgImage#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -785,7 +1202,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="60" selection-start="326" selection-end="326" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="2244">
           <folding>
+            <element signature="method#Line#0;class#Line#0" expanded="true" />
+            <element signature="e#2287#2288#0" expanded="true" />
+            <element signature="e#2325#2326#0" expanded="true" />
             <element signature="method#performAction#0;class#Line#0" expanded="true" />
+            <element signature="method#paintComponent#0;class#Line#0" expanded="true" />
+            <element signature="class#lineMouseListener#0;class#Line#0" expanded="true" />
             <element signature="method#mouseClicked#0;class#lineMouseListener#0;class#Line#0" expanded="true" />
             <element signature="method#checkPixel#0;class#lineMouseListener#0;class#Line#0" expanded="true" />
           </folding>
@@ -805,7 +1227,15 @@
     <entry file="file://$PROJECT_DIR$/src/Neuron.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="61" selection-start="662" selection-end="662" vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="3145">
-          <folding />
+          <folding>
+            <element signature="method#select#0;class#Neuron#0" expanded="true" />
+            <element signature="method#deselect#0;class#Neuron#0" expanded="true" />
+            <element signature="method#selectNeuronPair#0;class#Neuron#0" expanded="true" />
+            <element signature="class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#mouseClicked#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#mouseEntered#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#mouseExited#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -813,8 +1243,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="529" column="36" selection-start="21826" selection-end="21826" vertical-scroll-proportion="0.0" vertical-offset="8993" max-vertical-offset="9095">
           <folding>
-            <element signature="e#8398#8436#0" expanded="false" />
-            <element signature="e#15682#15738#0" expanded="false" />
+            <element signature="method#loadFromFile#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#saveToFile#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#save#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#saveAs#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#changeAllStateComponents#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#buildArchieve#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#setHasStateComponents#1;class#PathFinder#0" expanded="true" />
+            <element signature="method#setBg#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#createNewPath#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#confirmExit#4;class#PathFinder#0" expanded="true" />
+            <element signature="method#removeListeners#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#OpenListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#OpenListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#SaveListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#SaveListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#myMouseListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#mouseClicked#0;class#myMouseListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#MyWindowListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#handleExit#0;class#MyWindowListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#FindPathListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#FindPathListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#ExitListener#0;class#PathFinder#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -822,7 +1274,11 @@
     <entry file="file://$PROJECT_DIR$/src/BgImage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="867">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#BgImage#0;class#BgImage#0" expanded="true" />
+            <element signature="method#paintComponent#0;class#BgImage#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -871,11 +1327,6 @@
         <state line="37" column="0" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="1156" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aoe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="376" />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/PostItLapp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="808" max-vertical-offset="1445" />
@@ -884,13 +1335,6 @@
     <entry file="file://$USER_HOME$/Downloads/PostIt.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="45" selection-start="407" selection-end="407" vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="2992" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BgImage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="656">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/myUtil/Printing.java">
@@ -903,31 +1347,10 @@
         <state line="7" column="53" selection-start="143" selection-end="143" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="833" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Line.java">
+    <entry file="file://$PROJECT_DIR$/src/graphs/MatrixGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="17" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-          <folding>
-            <element signature="method#performAction#0;class#Line#0" expanded="true" />
-            <element signature="method#mouseClicked#0;class#lineMouseListener#0;class#Line#0" expanded="true" />
-            <element signature="method#checkPixel#0;class#lineMouseListener#0;class#Line#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Neuron.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="144" column="9" selection-start="4028" selection-end="4028" vertical-scroll-proportion="0.0" vertical-offset="1292" max-vertical-offset="2550">
+        <state line="28" column="21" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0" vertical-offset="220" max-vertical-offset="884">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PathFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="819" column="0" selection-start="34477" selection-end="34477" vertical-scroll-proportion="0.0" vertical-offset="989" max-vertical-offset="1615">
-          <folding>
-            <element signature="e#8398#8436#0" expanded="false" />
-            <element signature="e#15682#15738#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -941,55 +1364,290 @@
     <entry file="file://$PROJECT_DIR$/src/graphs/Edge.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="64" selection-start="348" selection-end="348" vertical-scroll-proportion="0.0" vertical-offset="145" max-vertical-offset="748">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphs/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="42" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Line.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="21" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="2125">
           <folding>
-            <element signature="method#Edge#0;class#Edge#0" expanded="true" />
-            <element signature="method#setWeight#0;class#Edge#0" expanded="true" />
+            <element signature="method#Line#0;class#Line#0" expanded="true" />
+            <element signature="e#2287#2288#0" expanded="true" />
+            <element signature="e#2325#2326#0" expanded="true" />
+            <element signature="method#performAction#0;class#Line#0" expanded="true" />
+            <element signature="method#paintComponent#0;class#Line#0" expanded="true" />
+            <element signature="class#lineMouseListener#0;class#Line#0" expanded="true" />
+            <element signature="method#mouseClicked#0;class#lineMouseListener#0;class#Line#0" expanded="true" />
+            <element signature="method#checkPixel#0;class#lineMouseListener#0;class#Line#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphs/ListGraph.java">
+    <entry file="file://$PROJECT_DIR$/src/Neuron.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="16" selection-start="1791" selection-end="1791" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1224">
+        <state line="31" column="33" selection-start="951" selection-end="951" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2176">
           <folding>
-            <element signature="method#ListGraph#0;class#ListGraph#0" expanded="true" />
-            <element signature="method#pathExists#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#select#0;class#Neuron#0" expanded="true" />
+            <element signature="method#deselect#0;class#Neuron#0" expanded="true" />
+            <element signature="method#selectNeuronPair#0;class#Neuron#0" expanded="true" />
+            <element signature="class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#mouseClicked#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#mouseEntered#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+            <element signature="method#mouseExited#0;class#ClickListener#0;class#Neuron#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Program Files (x86)/Java/jdk1.7.0_45/src.zip!/javax/swing/JComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="182" column="22" selection-start="6508" selection-end="6508" vertical-scroll-proportion="0.13005464" vertical-offset="0" max-vertical-offset="14994">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Program Files (x86)/Java/jdk1.7.0_45/src.zip!/javax/swing/JPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="122" column="22" selection-start="3200" selection-end="3210" vertical-scroll-proportion="0.33295837" vertical-offset="163" max-vertical-offset="1105">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Program Files (x86)/Java/jdk1.7.0_45/src.zip!/java/awt/Image.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="22" selection-start="804" selection-end="804" vertical-scroll-proportion="-0.24480875" vertical-offset="326" max-vertical-offset="1241">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Program Files (x86)/Java/jdk1.7.0_45/src.zip!/java/awt/image/BufferedImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="3" selection-start="1805" selection-end="1805" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4505">
+          <folding>
+            <element signature="e#0#64013#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="docComment;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;field#TYPE_CUSTOM#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;field#TYPE_INT_RGB#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;field#TYPE_INT_ARGB#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;field#TYPE_INT_ARGB_PRE#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;field#TYPE_INT_BGR#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;field#TYPE_3BYTE_BGR#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;field#TYPE_4BYTE_ABGR#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;field#TYPE_4BYTE_ABGR_PRE#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;field#TYPE_USHORT_565_RGB#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;field#TYPE_USHORT_555_RGB#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;field#TYPE_BYTE_GRAY#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;field#TYPE_USHORT_GRAY#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;field#TYPE_BYTE_BINARY#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;field#TYPE_BYTE_INDEXED#0;class#BufferedImage#0" expanded="false" />
+            <element signature="initializer##0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#BufferedImage#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#BufferedImage#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#BufferedImage#1;class#BufferedImage#0" expanded="false" />
+            <element signature="method#BufferedImage#1;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#BufferedImage#2;class#BufferedImage#0" expanded="false" />
+            <element signature="method#BufferedImage#2;class#BufferedImage#0" expanded="false" />
+            <element signature="method#isStandard#0;class#BufferedImage#0" expanded="false" />
+            <element signature="e#33648#34023#0" expanded="false" />
+            <element signature="e#34012#34013#0" expanded="false" />
+            <element signature="docComment;method#getType#0;class#BufferedImage#0" expanded="false" />
+            <element signature="e#34721#34722#0" expanded="false" />
+            <element signature="e#34753#34754#0" expanded="false" />
+            <element signature="docComment;method#getColorModel#0;class#BufferedImage#0" expanded="false" />
+            <element signature="e#34941#34942#0" expanded="false" />
+            <element signature="e#34974#34975#0" expanded="false" />
+            <element signature="docComment;method#getRaster#0;class#BufferedImage#0" expanded="false" />
+            <element signature="e#35166#35167#0" expanded="false" />
+            <element signature="e#35195#35196#0" expanded="false" />
+            <element signature="docComment;method#getAlphaRaster#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getAlphaRaster#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getRGB#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getRGB#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getRGB#1;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getRGB#1;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#setRGB#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#setRGB#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#setRGB#1;class#BufferedImage#0" expanded="false" />
+            <element signature="method#setRGB#1;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getWidth#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getWidth#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getHeight#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getHeight#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getWidth#1;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getWidth#1;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getHeight#1;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getHeight#1;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getSource#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getSource#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getProperty#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getProperty#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getProperty#1;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getProperty#1;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getGraphics#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getGraphics#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#createGraphics#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#createGraphics#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getSubimage#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getSubimage#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#isAlphaPremultiplied#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#isAlphaPremultiplied#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#coerceData#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#coerceData#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#toString#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#toString#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getSources#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getSources#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getPropertyNames#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getPropertyNames#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getMinX#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getMinX#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getMinY#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getMinY#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getSampleModel#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getSampleModel#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getNumXTiles#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getNumXTiles#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getNumYTiles#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getNumYTiles#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getMinTileX#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getMinTileX#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getMinTileY#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getMinTileY#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getTileWidth#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getTileWidth#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getTileHeight#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getTileHeight#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getTileGridXOffset#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getTileGridXOffset#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getTileGridYOffset#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getTileGridYOffset#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getTile#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getTile#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getData#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getData#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getData#1;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getData#1;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#copyData#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#copyData#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#setData#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#setData#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#addTileObserver#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#addTileObserver#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#removeTileObserver#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#removeTileObserver#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#isTileWritable#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#isTileWritable#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getWritableTileIndices#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getWritableTileIndices#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#hasTileWriters#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#hasTileWriters#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getWritableTile#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getWritableTile#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#releaseWritableTile#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#releaseWritableTile#0;class#BufferedImage#0" expanded="false" />
+            <element signature="docComment;method#getTransparency#0;class#BufferedImage#0" expanded="false" />
+            <element signature="method#getTransparency#0;class#BufferedImage#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/graphs/GraphMethods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="18" selection-start="351" selection-end="357" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1989">
-          <folding>
-            <element signature="method#depthFirstSearch#0;class#GraphMethods#0" expanded="true" />
-            <element signature="method#getPath#0;class#GraphMethods#0" expanded="true" />
-            <element signature="method#buildPath#0;class#GraphMethods#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphs/MatrixGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="20" selection-start="377" selection-end="377" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="884">
+        <state line="129" column="53" selection-start="5187" selection-end="5187" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1326">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="docComment;class#MatrixGraph#0" expanded="true" />
-            <element signature="method#pathExists#0;class#MatrixGraph#0" expanded="true" />
-            <element signature="method#getPath#0;class#MatrixGraph#0" expanded="true" />
-            <element signature="method#getNeuronPair#0;class#MatrixGraph#0" expanded="true" />
-            <element signature="method#getEdgesFrom#0;class#MatrixGraph#0" expanded="true" />
-            <element signature="method#getEdgeBetween#0;class#MatrixGraph#0" expanded="true" />
-            <element signature="method#getEdgeBetween#1;class#MatrixGraph#0" expanded="true" />
-            <element signature="method#getNodes#0;class#MatrixGraph#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphs/Graph.java">
+    <entry file="file://$PROJECT_DIR$/src/graphs/ListGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="358" selection-end="358" vertical-scroll-proportion="0.47103274" vertical-offset="0" max-vertical-offset="397">
-          <folding />
+        <state line="22" column="5" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="3859">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#ListGraph#0" expanded="true" />
+            <element signature="method#toString#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#ListGraph#0;class#ListGraph#0" expanded="true" />
+            <element signature="e#1283#1284#0" expanded="true" />
+            <element signature="e#1316#1317#0" expanded="true" />
+            <element signature="e#1387#1388#0" expanded="true" />
+            <element signature="e#1431#1432#0" expanded="true" />
+            <element signature="e#1482#1483#0" expanded="true" />
+            <element signature="e#1510#1511#0" expanded="true" />
+            <element signature="e#1571#1572#0" expanded="true" />
+            <element signature="e#1605#1606#0" expanded="true" />
+            <element signature="method#pathExists#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#getPath#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#getEdgesFrom#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#add#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#neuronsExist#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#getNeuronPair#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#modCheck#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#connect#0;class#ListGraph#0" expanded="true" />
+            <element signature="e#3579#3580#0" expanded="true" />
+            <element signature="e#3612#3613#0" expanded="true" />
+            <element signature="method#getNodesAsList#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#getEdgeBetween#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#getEdgeBetween#1;class#ListGraph#0" expanded="true" />
+            <element signature="method#showEdgeDialog#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#showEditEdgeDialog#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#showViewEdgeDialog#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#disconnect#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#remove#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#setConnectionWeight#0;class#ListGraph#0" expanded="true" />
+            <element signature="method#findEdge#0;class#ListGraph#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BgImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="24" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#BgImage#0;class#BgImage#0" expanded="true" />
+            <element signature="method#paintComponent#0;class#BgImage#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PathFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="25" selection-start="5186" selection-end="5186" vertical-scroll-proportion="0.3580931" vertical-offset="714" max-vertical-offset="8874">
+          <folding>
+            <element signature="method#loadFromFile#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#saveToFile#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#save#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#saveAs#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#changeAllStateComponents#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#buildArchieve#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#setHasStateComponents#1;class#PathFinder#0" expanded="true" />
+            <element signature="method#setBg#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#createNewPath#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#confirmExit#4;class#PathFinder#0" expanded="true" />
+            <element signature="method#removeListeners#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#OpenListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#OpenListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#SaveListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#SaveListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#NewMapListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#myMouseListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#mouseClicked#0;class#myMouseListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#MyWindowListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#handleExit#0;class#MyWindowListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#FindPathListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="method#actionPerformed#0;class#FindPathListener#0;class#PathFinder#0" expanded="true" />
+            <element signature="class#ExitListener#0;class#PathFinder#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -999,10 +1657,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>pathfinder</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1022,7 +1682,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited>org.junit:com.springsource.org.junit:4.11.0</last-edited>
+          <last-edited>junit</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
