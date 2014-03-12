@@ -9,18 +9,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca4f2b75-b3a7-4b2e-968b-4357a80ed71c" name="Default" comment="//matrixgraph början&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/pathfinder.xml" />
-      <change type="DELETED" beforePath="D:\Programmering\Java\PathFinder\src\aoe.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adam.drini" afterPath="$PROJECT_DIR$/adam.drini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BgImage.java" afterPath="$PROJECT_DIR$/src/BgImage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graphs/Graph.java" afterPath="$PROJECT_DIR$/src/graphs/Graph.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graphs/GraphMethods.java" afterPath="$PROJECT_DIR$/src/graphs/GraphMethods.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Line.java" afterPath="$PROJECT_DIR$/src/Line.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graphs/ListGraph.java" afterPath="$PROJECT_DIR$/src/graphs/ListGraph.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graphs/MatrixGraph.java" afterPath="$PROJECT_DIR$/src/graphs/MatrixGraph.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Neuron.java" afterPath="$PROJECT_DIR$/src/Neuron.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PathFinder.java" afterPath="$PROJECT_DIR$/src/PathFinder.java" />
+    <list default="true" id="ca4f2b75-b3a7-4b2e-968b-4357a80ed71c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PathFinder.iws" />
@@ -855,7 +844,11 @@
       <created>1393669815851</created>
       <updated>1393669815852</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="utan fungerande bg">
+      <created>1394611701759</created>
+      <updated>1394611701759</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -957,7 +950,8 @@
     <MESSAGE value="//fixa spara ladda map och ny plats buggar samt korrekterade selection vid klick av linje" />
     <MESSAGE value="//fixa spara ladda map och ny plats buggar samt korrekterade selection vid klick av linje&#10;//mer korrekt inläsning" />
     <MESSAGE value="//matrixgraph början" />
-    <option name="LAST_COMMIT_MESSAGE" value="//matrixgraph början" />
+    <MESSAGE value="utan fungerande bg" />
+    <option name="LAST_COMMIT_MESSAGE" value="utan fungerande bg" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
