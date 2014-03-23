@@ -16,8 +16,6 @@ public class GraphMethods<TYPE> implements Serializable{
 		return time;
 	}
 	public  boolean pathExists(TYPE from,TYPE to, Graph graph){
-		// if(!graph.neuronsExist(from,to))
-//          return false; // early exit if the neurons isn't in the graph
 		NeuronPair<TYPE> temp  = graph.getNeuronPair(from, to);
 		if(temp != null)
 			return true; //early exit if direct link exists
