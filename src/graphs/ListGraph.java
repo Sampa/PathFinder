@@ -58,12 +58,12 @@ public class ListGraph<TYPE> extends GraphMethods<TYPE> implements Graph<TYPE>, 
     @Override
     public boolean pathExists(TYPE from, TYPE to) {
 
-        return pathExists(from,to,this);
+        return pathExists(this, from,to,this);
     }
 
     @Override
     public List<Edge> getPath(TYPE from, TYPE to) {
-        return getPath(from,to,this);
+        return getPath(this, from,to,this);
     }
 
     public List<Edge> getEdgesFrom(TYPE neuron){

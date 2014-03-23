@@ -36,9 +36,9 @@ public class NeuronPair<TYPE> implements Serializable{
 
     @Override
     public int hashCode() {
-        //int result = n1.hashCode();
-        //result = result + n2.hashCode();
-        return 10;
+        int n1length = n1.toString().length();
+        int n2length = n1.toString().length();
+        return 10*(n1length+n2length);
     }
 
     public static void man(String[] args) {

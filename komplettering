@@ -1,0 +1,28 @@
+- Om man byter karta med två städer markerade så kan man sedan inte markera några nya städer, man får felmeddelande ”Du har redan valt två städer”.
+*Fixat
+- Om man laddar en karta med markerade platser så bibehålls markeringen och man kan sedan markera 4 noder (även efter att man har avmarkerat de laddade noderna)
+*Fixat
+- Om man laddar en sparad karta försvinner inte de noder som man för stunden har uppe utan de slås ihop med den gamla kartan.
+*Fixat
+- Funktionerna i GraphMethods till att vara statiska. Tanken är att det skall fungera som ett fristående bibliotek du kan sälja till folk som redan har en färdig graf-klass de inte vill ändra på utan endast kunna göra vissa saker med. Inte att det skall fungera som en superklass som man ärver från, du måste alltså ta bort även detta arv. Om det skulle varit så så hade det varit rekommenderat att göra den till en abstrakt klass. Tanken är alltså att funktionen även skall ta in ett graf<N>-objekt som ett av sina argument och utföra operationerna på denna.
+*Fixat
+- Du har inte skrivit något om grupp eller sammarbete men det finns ändå olika författarnamn i filerna. Du måste redogöra för källor och samarbeten i enlighet med DSVs riktlinjer för samarbete och plagiatkontroll.
+*Eftersom jag inte har någon grupp eller samarbetat med någon blir det svårt. Olika författarnamn antar jag du menar IntelliJ autogenererade
+"Created by Sampa/Happyjuiced". De är bara mina användarnamn på stationära respektive bärbara datorn
+Sampa härleds enkelt via danielvdb.se -> valfri extensions github repositry ledel till Sampa @ github där inte bara den här programmet ligger utan även lite från ALDA där min dsv.su.se email står med.
+Happyjuiced är ännu enklare http://facebook.com/happyjuiced.
+- Det finns ett antal block med utkommenterad kod, det är inget jätteproblem men kutym är att man städar bort utkommenterad kod då denna gör att den existerande koden blir mindre överblickbar.
+ *Tror jag hittat det mesta jag missade senaste.
+
+-Interfacet saknar åtminstone metoderna add och remove samt setConnectionWeight vänligen läs igenom inlämningstextens sida två och tre igen.
+
+- Om man försöker skapa en väg a-10-b, b-5-c c-10-d d-10-a går detta inte, den sista kanten man försöker skapa ger felmeddelande om att det redan finns en väg. Detta gör det tyvärr svårt att kolla om din path-finding fungerar.
+- MatrixGraph är inte färdigimplementerad
+
+Några saker som du inte prompt behöver ändra på men som jag tycker är värda att anmärka är:
+- NeuronPairs hash-code returnerar ett fast värde. Detta leder till att sökningar i hash-maps blir otroligt långsamma då java i praktiken måste jämföra alla objekt i mappen med det efterfrågade.
+       Ooopsi. Ändrat till
+        int n1length = n1.toString().length();
+        int n2length = n1.toString().length();
+        return 10*(n1length+n2length);
+- Du har ett flertal instansvariabler för PathFinder som endast används i konstruktorn, de bör således placeras där.

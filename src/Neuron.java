@@ -104,7 +104,8 @@ public class Neuron extends JComponent implements Serializable{
         panel.setBackground(Color.ORANGE);
         panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
         setSelectedNeuronCount(neuronCount + 1);
-        selectedNeurons.add(this);
+        Neuron.selectedNeurons.add(this);
+        System.out.println(Neuron.selectedNeurons.toString());
         if (getSelectedNeuronCount() == 2) {
             win.enableAllStateItems();
         }

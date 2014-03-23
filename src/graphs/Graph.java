@@ -10,5 +10,6 @@ public interface Graph<TYPE> {
     List<Edge> getEdgesFrom(TYPE neuron);
     Edge getEdgeBetween(NeuronPair np);
     Edge getEdgeBetween(TYPE from, TYPE to);
+    void setConnectionWeight(TYPE n1, TYPE n2,int newWeight);
     HashMap<TYPE,List<Edge>> getNodes();
 }

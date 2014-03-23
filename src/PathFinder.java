@@ -115,12 +115,9 @@ public class PathFinder extends JFrame implements Serializable{
 //        win.repaint();
 
     }
-
-
     public static void invokeOnLineClick(NeuronPair<Neuron> neuronPair,PathFinder win){
            win.editPath(neuronPair);
     }
-
     private void addLine(String invokeOnClick, Color lineColor, Graph<? extends Neuron> graph, NeuronPair<? extends Object> np) {
         try{
             Line newLine = new Line(this,invokeOnClick,lineColor,graph,np);
@@ -207,7 +204,6 @@ public class PathFinder extends JFrame implements Serializable{
             ioe.printStackTrace();
         }
     }
-
     private boolean saveToFile(String filePath) {
         try {
             FileOutputStream saveFile = new FileOutputStream(filePath);
@@ -247,11 +243,10 @@ public class PathFinder extends JFrame implements Serializable{
     }
     private boolean save(){
         boolean saved = false;
-        if (loadedFromFile) {
+        if (loadedFromFile)
             saveToFile(savedFilePath);
-        } else {
+        else
             saved = saveAs();
-        }
         hasChanges = !saved; //if save is true then there is no unsaved changes
         return saved;
     }
@@ -396,6 +391,10 @@ public class PathFinder extends JFrame implements Serializable{
     private void setBg(String path) {
         if(layerPanel !=null && bg !=null)
             layerPanel.remove(bg);
+        for(Map.Entry<Neuron, List<Edge>> entry : neuronListGraph.allNeurons.entrySet()){
+            Neuron n = entry.getKey();
+            layerPanel.remove(n);
+        }
         bg = new BgImage(path);
         hasChanges = true;
         width = bg.getWidth() + 15;
@@ -404,8 +403,11 @@ public class PathFinder extends JFrame implements Serializable{
         setSize(width, height);//fixa marginalerna
         setMinimumSize(new Dimension(width, height));
         disableAllStateItems(); //make sure all is false but not newNeuron actions
+
         layerPanel.add(bg);
         layerPanel.moveToBack(bg);
+        Neuron.selectedNeurons = new ArrayList<>();
+        Neuron.setSelectedNeuronCount(0);
         setVisible(true);
         repaint();
     }
@@ -450,363 +452,363 @@ public class PathFinder extends JFrame implements Serializable{
                 validate();
                 repaint();
             }
-            /*Wrapper mehods i wanted to reuse for later perhaps*/
-            public Boolean[] confirmExit(JFrame frame,Boolean doExitNotReturnValue){
-                return confirmExit(doExitNotReturnValue,frame);
+    /*Wrapper mehods i wanted to reuse for later perhaps*/
+    public Boolean[] confirmExit(JFrame frame,Boolean doExitNotReturnValue){
+        return confirmExit(doExitNotReturnValue,frame);
+    }
+    public Boolean[] confirmExit(JFrame frame) {
+        return confirmExit(false, frame);
+    }
+    public Boolean[] confirmExit(Boolean doExitNotReturnValue, JFrame dialogParentComponent){
+        Boolean userSelectedToExit = true;
+        Boolean userSelectedToSave = false;
+        Boolean[] result = new Boolean[2];
+        try{
+            int response = JOptionPane.showConfirmDialog(dialogParentComponent, "Du har osparade ändringar,vill du spara dem?", "Välj ett alternativ", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+            if (response == YES_OPTION)
+                userSelectedToSave = true;
+            else if (response == CANCEL_OPTION) {
+                userSelectedToExit = false;
+                doExitNotReturnValue = false;
             }
-            public Boolean[] confirmExit(JFrame frame) {
-                return confirmExit(false, frame);
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(dialogParentComponent, "Gick åt h-vete" + error.getCause());
+            doExitNotReturnValue = false; //ingen exit om inget kunde sparas oavsett hur metoden anropades
+
+        }
+        if(doExitNotReturnValue &&  userSelectedToExit)
+            System.exit(0);
+        result[0] = userSelectedToExit;
+        result[1] = userSelectedToSave;
+        return result;
+    }
+    private Object[] convertListToArray(List<?> path){
+        Object[] arr = new Object[path.size()];
+        for (int i = 0; i < path.size(); i++) {
+            Object o = path.get(i);
+            arr[i] = o;
+        }
+        return arr;
+    }
+    private void addListeners() {
+        saveL = new SaveListener();
+        save.addActionListener(saveL);
+        saveAs.addActionListener(saveL);
+
+        ml = new MyWindowListener();
+        addWindowListener(ml);
+
+        el = new ExitListener();
+        exit.addActionListener(el);
+
+        openL = new OpenListener();
+        open.addActionListener(openL);
+
+        mpl = new NewMapListener();
+        newMap.addActionListener(mpl);
+
+        newPathL = new NewPathListener();
+        newPath.addActionListener(newPathL);
+        newPathButton.addActionListener(newPathL);
+
+        newNeuronL = new NewNeuronListener();
+        newNeuron.addActionListener(newNeuronL);
+        newNeuronButton.addActionListener(newNeuronL);
+
+        spl = new ShowPathListener();
+        showPathButton.addActionListener(spl);
+        showPath.addActionListener(spl);
+
+        epl = new EditPathListener();
+        editPath.addActionListener(epl);
+        editPathButton.addActionListener(epl);
+
+        fpl = new FindPathListener();
+        findPath.addActionListener(fpl);
+        findPathButton.addActionListener(fpl);
+
+    }
+    private class OpenListener implements ActionListener,Serializable {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Neuron.selectedNeurons = new ArrayList<>();
+            String str = System.getProperty("user.dir");
+            JFileChooser fileChooser = new JFileChooser(str);
+            fileChooser.setFileFilter(filter);
+            int code = fileChooser.showOpenDialog(win);
+            if(code == JFileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                // The name of the file to open.
+                String fileName = file.getAbsolutePath();
+                loadFromFile(fileName);
+            /*    // This will reference one line at a time
+                String line = null;
+                try {
+
+                    FileInputStream saveFile = new FileInputStream(fileName);
+                    ObjectInputStream restore = new ObjectInputStream(saveFile);
+                    try {
+                        String bgPath = (String) restore.readObject();
+                        //win.neuronListGraph = (ListGraph)restore.readObject();
+                        setBg(bgPath);
+                        JOptionPane.showMessageDialog(win,"Laddat in");
+                    } catch (ClassNotFoundException e1) {
+                        e1.printStackTrace();
+                    }
+                    loadedFromFile = true;
+                    savedFilePath = fileName;
+//                    bufferedReader.close();
+                }catch(FileNotFoundException ex) {
+                    JOptionPane.showMessageDialog(win,"Kunde inte hitta filen'" +fileName + "'");
+                }catch(IOException ex) {
+                    JOptionPane.showMessageDialog(win, "Kunde inte läsa från '" + fileName + "'");
+                }*/
             }
-            public Boolean[] confirmExit(Boolean doExitNotReturnValue, JFrame dialogParentComponent){
-                Boolean userSelectedToExit = true;
-                Boolean userSelectedToSave = false;
-                Boolean[] result = new Boolean[2];
+        }
+    }
+    private class SaveListener implements ActionListener,Serializable {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String actionName = e.getActionCommand();
+            if(actionName.equals("save"))
+                save();
+            if (actionName.equals("saveAs"))
+                saveAs();
+        }
+    }
+    private class NewMapListener implements ActionListener,Serializable {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (bg != null)
+                if (hasChanges)
+                    confirmExit(PathFinder.this);
+
+            String str = System.getProperty("user.dir");
+            JFileChooser fileChooser = new JFileChooser(str);
+            filter = new FileNameExtensionFilter("Bilder","jpg","gif","png");
+            fileChooser.setFileFilter(filter);
+            int code = fileChooser.showOpenDialog(PathFinder.this);
+            if(code == JFileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                for(Map.Entry<Neuron, List<Edge>> current : neuronListGraph.allNeurons.entrySet()){
+                    PathFinder.this.remove(current.getKey());
+                    PathFinder.this.remove(layerPanel);
+                    layerPanel = new JLayeredPane();
+                    PathFinder.this.add(layerPanel);
+                    List<Edge> list = current.getValue();
+                    for (Edge aList : list) {
+                        PathFinder.this.remove(aList);
+                    }
+                }
+                PathFinder.this.setBg(file.getAbsolutePath());
+                PathFinder.this.validate();
+                PathFinder.this.pack();
+                PathFinder.this.repaint();
+
+                neuronListGraph = new ListGraph<>();
+
+            }
+        }
+    }
+    private class myMouseListener extends MouseAdapter implements Serializable{
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            super.mouseClicked(e);
                 try{
-                    int response = JOptionPane.showConfirmDialog(dialogParentComponent, "Du har osparade ändringar,vill du spara dem?", "Välj ett alternativ", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
-                    if (response == YES_OPTION)
-                        userSelectedToSave = true;
-                    else if (response == CANCEL_OPTION) {
-                        userSelectedToExit = false;
-                        doExitNotReturnValue = false;
-                    }
-                } catch (Exception error) {
-                    JOptionPane.showMessageDialog(dialogParentComponent, "Gick åt h-vete" + error.getCause());
-                    doExitNotReturnValue = false; //ingen exit om inget kunde sparas oavsett hur metoden anropades
-
-                }
-                if(doExitNotReturnValue &&  userSelectedToExit)
-                    System.exit(0);
-                result[0] = userSelectedToExit;
-                result[1] = userSelectedToSave;
-                return result;
-            }
-            private Object[] convertListToArray(List<?> path){
-                Object[] arr = new Object[path.size()];
-                for (int i = 0; i < path.size(); i++) {
-                    Object o = path.get(i);
-                    arr[i] = o;
-                }
-                return arr;
-            }
-            private void addListeners() {
-                saveL = new SaveListener();
-                save.addActionListener(saveL);
-                saveAs.addActionListener(saveL);
-
-                ml = new MyWindowListener();
-                addWindowListener(ml);
-
-                el = new ExitListener();
-                exit.addActionListener(el);
-
-                openL = new OpenListener();
-                open.addActionListener(openL);
-
-                mpl = new NewMapListener();
-                newMap.addActionListener(mpl);
-
-                newPathL = new NewPathListener();
-                newPath.addActionListener(newPathL);
-                newPathButton.addActionListener(newPathL);
-
-                newNeuronL = new NewNeuronListener();
-                newNeuron.addActionListener(newNeuronL);
-                newNeuronButton.addActionListener(newNeuronL);
-
-                spl = new ShowPathListener();
-                showPathButton.addActionListener(spl);
-                showPath.addActionListener(spl);
-
-                epl = new EditPathListener();
-                editPath.addActionListener(epl);
-                editPathButton.addActionListener(epl);
-
-                fpl = new FindPathListener();
-                findPath.addActionListener(fpl);
-                findPathButton.addActionListener(fpl);
-
-            }
-            private class OpenListener implements ActionListener,Serializable {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    Neuron.selectedNeurons = new ArrayList<>();
-                    String str = System.getProperty("user.dir");
-                    JFileChooser fileChooser = new JFileChooser(str);
-                    fileChooser.setFileFilter(filter);
-                    int code = fileChooser.showOpenDialog(win);
-                    if(code == JFileChooser.APPROVE_OPTION) {
-                        File file = fileChooser.getSelectedFile();
-                        // The name of the file to open.
-                        String fileName = file.getAbsolutePath();
-                        loadFromFile(fileName);
-                    /*    // This will reference one line at a time
-                        String line = null;
-                        try {
-
-                            FileInputStream saveFile = new FileInputStream(fileName);
-                            ObjectInputStream restore = new ObjectInputStream(saveFile);
-                            try {
-                                String bgPath = (String) restore.readObject();
-                                //win.neuronListGraph = (ListGraph)restore.readObject();
-                                setBg(bgPath);
-                                JOptionPane.showMessageDialog(win,"Laddat in");
-                            } catch (ClassNotFoundException e1) {
-                                e1.printStackTrace();
-                            }
-                            loadedFromFile = true;
-                            savedFilePath = fileName;
-        //                    bufferedReader.close();
-                        }catch(FileNotFoundException ex) {
-                            JOptionPane.showMessageDialog(win,"Kunde inte hitta filen'" +fileName + "'");
-                        }catch(IOException ex) {
-                            JOptionPane.showMessageDialog(win, "Kunde inte läsa från '" + fileName + "'");
-                        }*/
-                    }
-                }
-            }
-            private class SaveListener implements ActionListener,Serializable {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    String actionName = e.getActionCommand();
-                    if(actionName.equals("save"))
-                        save();
-                    if (actionName.equals("saveAs"))
-                        saveAs();
-                }
-            }
-            private class NewMapListener implements ActionListener,Serializable {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (bg != null)
-                        if (hasChanges)
-                            confirmExit(PathFinder.this);
-
-                    String str = System.getProperty("user.dir");
-                    JFileChooser fileChooser = new JFileChooser(str);
-                    filter = new FileNameExtensionFilter("Bilder","jpg","gif","png");
-                    fileChooser.setFileFilter(filter);
-                    int code = fileChooser.showOpenDialog(PathFinder.this);
-                    if(code == JFileChooser.APPROVE_OPTION) {
-                        File file = fileChooser.getSelectedFile();
-                        for(Map.Entry<Neuron, List<Edge>> current : neuronListGraph.allNeurons.entrySet()){
-                            PathFinder.this.remove(current.getKey());
-                            PathFinder.this.remove(layerPanel);
-                            layerPanel = new JLayeredPane();
-                            PathFinder.this.add(layerPanel);
-                            List<Edge> list = current.getValue();
-                            for (Edge aList : list) {
-                                PathFinder.this.remove(aList);
-                            }
-                        }
-                        PathFinder.this.setBg(file.getAbsolutePath());
-                        PathFinder.this.validate();
-                        PathFinder.this.pack();
-                        PathFinder.this.repaint();
-
-                        neuronListGraph = new ListGraph<>();
-
-                    }
-                }
-            }
-            private class myMouseListener extends MouseAdapter implements Serializable{
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    super.mouseClicked(e);
-                        try{
-                            newNeuronButton.removeActionListener(newNeuronL);
-                            newNeuron.removeActionListener(newNeuronL);
-                            setCursor(defaultCursor);
-                            int posX = e.getX()-15;
-                            int posY = e.getY()-75;
-                            if(posX < bg.getX() || posY < bg.getY() || posX > bg.getWidth() || posY>bg.getHeight()){
-                                JOptionPane.showMessageDialog(PathFinder.this, "Du måste klicka på kartan!");
-                            }else{
-                                JPanel neuronPanel = new JPanel(new GridLayout(2,1));
-                                JLabel neuronLabel = new JLabel("Vad ska platsen heta?");
-                                JTextField neuronField = new JTextField(10);
-                                neuronPanel.add(neuronLabel);
-                                neuronPanel.add(neuronField);
-                                int result = JOptionPane.showOptionDialog(PathFinder.this, neuronPanel,
-                                        "Ny plats",JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"OK", "Cancel"}, neuronField);
-                                if (result == JOptionPane.OK_OPTION){
-                                    String neuronName = neuronField.getText();
-                                    if ((neuronName !=null) & (neuronName.length() > 0)) {
-                                        Neuron newestNeuron = new Neuron(posX,posY,neuronName,PathFinder.this);
-                                        layerPanel.add(newestNeuron);
-                                        layerPanel.moveToFront(newestNeuron);
-                                        neuronListGraph.add(newestNeuron);
-                                        hasChanges =  true;
-                                        allowNewNeuron = true;
-                                        validate();
-                                        repaint();
-                                        pack();
-                                    }
-                                }
-                            }
-                            newNeuronButton.addActionListener(newNeuronL);
-                            newNeuron.addActionListener(newNeuronL);
-                        }catch(NullPointerException n){
-                            JOptionPane.showMessageDialog(win, "Du måste ange ett namn!");
-                        }
-
-                    removeMouseListener(mListener);
-                }
-            }
-            private class NewNeuronListener implements ActionListener ,Serializable{
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                        setCursor(crosshairCursor); //setCursor(int) is depricated
-                        addMouseListener(mListener);
-                }
-            }
-            private class MyWindowListener extends WindowAdapter implements ActionListener,Serializable {
-                @Override
-                public void windowClosing(WindowEvent e) {
-                    super.windowClosing(e);
-                    handleExit();
-                }
-
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    handleExit();
-                }
-                private void handleExit() {
-                    if(!hasChanges){
-                        System.exit(0);
-                    }
-                    Boolean[] result = confirmExit(win);
-                    if (result[1]) { //användaren ville spara
-                        try {
-                            save();
-                        }catch(Exception saveError) {
-                            JOptionPane.showMessageDialog(win,saveError,"Något gick fel",JOptionPane.ERROR_MESSAGE);
-                            result[0]=false;
-                        }
-                    }
-                    if (result[0]) {  //användaren ville exita
-                        System.exit(0);
-                    }
-                }
-            }
-            private class EditPathListener implements ActionListener,Serializable{
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    editPath();
-                }
-            }
-            private class ShowPathListener implements ActionListener,Serializable{
-                public void alert(Neuron n1,Neuron n2){
-                    int answer = JOptionPane.showConfirmDialog(win,
-                            "Finns ingen förbindelse mellan,"+n1.getName()+" och "+n2.getName()+"vill du skapa en?", "Ooops!",
-                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                    if (answer == JOptionPane.YES_OPTION) {
-                        createNewPath();
-                    }
-                }
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    Neuron n1 = null;
-                    Neuron n2 = null;
-                    try{
-                        NeuronPair pair = getSelectedNeuronPair();
-                        n1 = (Neuron)pair.getN1();
-                        n2 = (Neuron)pair.getN2();
-                        pair = neuronListGraph.getNeuronPair(n1,n2);
-                        neuronListGraph.showViewEdgeDialog(win, pair);
-                    }catch (NoSuchElementException | NullPointerException nee){
-                        alert(n1,n2);
-                    }
-                }
-            }
-            private class FindPathListener implements ActionListener,Serializable{
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if(!neuronListGraph.pathExists(getFirstSelectedNeuron(),getLastSelectedNeuron(),neuronListGraph)){
-                        JOptionPane.showMessageDialog(win,"Finns tyvärr ingen väg");
-                        return;
-                    }
-                    displayPath();
-                }
-            }
-            @Override
-            public void repaint(long time, int x, int y, int width, int height) {
-
-                super.repaint(time, x, y, width, height);
-            }
-            private void displayPath() {
-                //Fetches a list of Edges really but we neither cant(not allowed due to specs) or need to cast them here anyway
-                List<?> path = neuronListGraph.getPath(getFirstSelectedNeuron(), getLastSelectedNeuron(), neuronListGraph);
-
-                //for the jlist we need them in an object array
-                Object[] arr = convertListToArray(path);
-                //since we are not allowed to cast to edges here we have to send it to the graphmethods that does the work for us
-                int totalTime = GraphMethods.getTotalPathTime(path);
-                //init components
-                JList<Object> list = new JList<>(arr);
-                JScrollPane listScroller = new JScrollPane(list);
-                JButton editThisPath = new JButton("Ändra vald förbindelse");
-                JDialog dialog = new JDialog(win,"Snabbaste vägen tog "+totalTime,true); //I just happend to think JDialogs are the cutest option
-
-                list.clearSelection();//just to make sure if some randow bug could appear
-                list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);//only one selected is allowed
-                //styles, because default is boring right?
-                list.setBackground(new Color(0, 136, 204));
-                list.setForeground(new Color(230, 230, 230));
-                list.setFont(new Font("Serif", Font.PLAIN, 20));
-                list.setMinimumSize(new Dimension(dialog.getWidth(), 100));
-
-                editThisPath.setBackground(new Color(98, 196, 98));
-                editThisPath.setForeground(Color.WHITE);
-
-                dialog.add(listScroller, BorderLayout.PAGE_START);//kompass options etc is "depricated" but still working old style so I _try_ to remember that everywher
-                dialog.add(editThisPath, BorderLayout.CENTER);
-                editThisPath.addActionListener(new ListPathListener(dialog, path, list));
-                dialog.pack();
-                dialog.setVisible(true);
-            }
-            private class ListPathListener implements ActionListener,Serializable {
-                private JList<?> list;
-                private List<?> path;
-                private JDialog dialog;
-
-                private ListPathListener(JDialog dialog,List<?> path, JList<?> list) {
-                    this.list = list;
-                    this.path = path;
-                    this.dialog = dialog;
-                }
-
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    int index = list.getSelectedIndex();
-                    for (int i = 0; i < path.size(); i++) {
-                        if(index==i){
-                            NeuronPair<Neuron> found = neuronListGraph.findEdge(path.get(i));
-                            if(found != null){
-                                neuronListGraph.showEditEdgeDialog(win, found);
-                                dialog.pack();
+                    newNeuronButton.removeActionListener(newNeuronL);
+                    newNeuron.removeActionListener(newNeuronL);
+                    setCursor(defaultCursor);
+                    int posX = e.getX()-15;
+                    int posY = e.getY()-75;
+                    if(posX < bg.getX() || posY < bg.getY() || posX > bg.getWidth() || posY>bg.getHeight()){
+                        JOptionPane.showMessageDialog(PathFinder.this, "Du måste klicka på kartan!");
+                    }else{
+                        JPanel neuronPanel = new JPanel(new GridLayout(2,1));
+                        JLabel neuronLabel = new JLabel("Vad ska platsen heta?");
+                        JTextField neuronField = new JTextField(10);
+                        neuronPanel.add(neuronLabel);
+                        neuronPanel.add(neuronField);
+                        int result = JOptionPane.showOptionDialog(PathFinder.this, neuronPanel,
+                                "Ny plats",JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"OK", "Cancel"}, neuronField);
+                        if (result == JOptionPane.OK_OPTION){
+                            String neuronName = neuronField.getText();
+                            if ((neuronName !=null) & (neuronName.length() > 0)) {
+                                Neuron newestNeuron = new Neuron(posX,posY,neuronName,PathFinder.this);
+                                layerPanel.add(newestNeuron);
+                                layerPanel.moveToFront(newestNeuron);
+                                neuronListGraph.add(newestNeuron);
+                                hasChanges =  true;
+                                allowNewNeuron = true;
+                                validate();
+                                repaint();
+                                pack();
                             }
                         }
                     }
+                    newNeuronButton.addActionListener(newNeuronL);
+                    newNeuron.addActionListener(newNeuronL);
+                }catch(NullPointerException n){
+                    JOptionPane.showMessageDialog(win, "Du måste ange ett namn!");
+                }
 
-                }
-            }
-            private class NewPathListener implements ActionListener,Serializable{
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if(neuronListGraph.pathExists(getFirstSelectedNeuron(),getLastSelectedNeuron())) {
-                        JOptionPane.showMessageDialog(win, "Det finns tyvärr redan en förbindelse");
-                    }else
-                        createNewPath();
+            removeMouseListener(mListener);
+        }
+    }
+    private class NewNeuronListener implements ActionListener ,Serializable{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+                setCursor(crosshairCursor); //setCursor(int) is depricated
+                addMouseListener(mListener);
+        }
+    }
+    private class MyWindowListener extends WindowAdapter implements ActionListener,Serializable {
+        @Override
+        public void windowClosing(WindowEvent e) {
+            super.windowClosing(e);
+            handleExit();
+        }
 
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            handleExit();
+        }
+        private void handleExit() {
+            if(!hasChanges){
+                System.exit(0);
+            }
+            Boolean[] result = confirmExit(win);
+            if (result[1]) { //användaren ville spara
+                try {
+                    save();
+                }catch(Exception saveError) {
+                    JOptionPane.showMessageDialog(win,saveError,"Något gick fel",JOptionPane.ERROR_MESSAGE);
+                    result[0]=false;
                 }
             }
-            private class ExitListener implements ActionListener,Serializable {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if(hasChanges)
-                        confirmExit(win, true);
-                    else
-                        System.exit(0);
+            if (result[0]) {  //användaren ville exita
+                System.exit(0);
+            }
+        }
+    }
+    private class EditPathListener implements ActionListener,Serializable{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            editPath();
+        }
+    }
+    private class ShowPathListener implements ActionListener,Serializable{
+        public void alert(Neuron n1,Neuron n2){
+            int answer = JOptionPane.showConfirmDialog(win,
+                    "Finns ingen förbindelse mellan,"+n1.getName()+" och "+n2.getName()+"vill du skapa en?", "Ooops!",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (answer == JOptionPane.YES_OPTION) {
+                createNewPath();
+            }
+        }
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Neuron n1 = null;
+            Neuron n2 = null;
+            try{
+                NeuronPair pair = getSelectedNeuronPair();
+                n1 = (Neuron)pair.getN1();
+                n2 = (Neuron)pair.getN2();
+                pair = neuronListGraph.getNeuronPair(n1,n2);
+                neuronListGraph.showViewEdgeDialog(win, pair);
+            }catch (NoSuchElementException | NullPointerException nee){
+                alert(getFirstSelectedNeuron(),getLastSelectedNeuron());
+            }
+        }
+    }
+    private class FindPathListener implements ActionListener,Serializable{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(!GraphMethods.pathExists(neuronListGraph, getFirstSelectedNeuron(), getLastSelectedNeuron(), neuronListGraph)){
+                JOptionPane.showMessageDialog(win,"Finns tyvärr ingen väg");
+                return;
+            }
+            displayPath();
+        }
+    }
+    @Override
+    public void repaint(long time, int x, int y, int width, int height) {
+
+        super.repaint(time, x, y, width, height);
+    }
+    private void displayPath() {
+        //Fetches a list of Edges really but we neither cant(not allowed due to specs) or need to cast them here anyway
+        List<?> path = GraphMethods.getPath(neuronListGraph, getFirstSelectedNeuron(), getLastSelectedNeuron(), neuronListGraph);
+
+        //for the jlist we need them in an object array
+        Object[] arr = convertListToArray(path);
+        //since we are not allowed to cast to edges here we have to send it to the graphmethods that does the work for us
+        int totalTime = GraphMethods.getTotalPathTime(path);
+        //init components
+        JList<Object> list = new JList<>(arr);
+        JScrollPane listScroller = new JScrollPane(list);
+        JButton editThisPath = new JButton("Ändra vald förbindelse");
+        JDialog dialog = new JDialog(win,"Snabbaste vägen tog "+totalTime,true); //I just happend to think JDialogs are the cutest option
+
+        list.clearSelection();//just to make sure if some randow bug could appear
+        list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);//only one selected is allowed
+        //styles, because default is boring right?
+        list.setBackground(new Color(0, 136, 204));
+        list.setForeground(new Color(230, 230, 230));
+        list.setFont(new Font("Serif", Font.PLAIN, 20));
+        list.setMinimumSize(new Dimension(dialog.getWidth(), 100));
+
+        editThisPath.setBackground(new Color(98, 196, 98));
+        editThisPath.setForeground(Color.WHITE);
+
+        dialog.add(listScroller, BorderLayout.PAGE_START);//kompass options etc is "depricated" but still working old style so I _try_ to remember that everywher
+        dialog.add(editThisPath, BorderLayout.CENTER);
+        editThisPath.addActionListener(new ListPathListener(dialog, path, list));
+        dialog.pack();
+        dialog.setVisible(true);
+    }
+    private class ListPathListener implements ActionListener,Serializable {
+        private JList<?> list;
+        private List<?> path;
+        private JDialog dialog;
+
+        private ListPathListener(JDialog dialog,List<?> path, JList<?> list) {
+            this.list = list;
+            this.path = path;
+            this.dialog = dialog;
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int index = list.getSelectedIndex();
+            for (int i = 0; i < path.size(); i++) {
+                if(index==i){
+                    NeuronPair<Neuron> found = neuronListGraph.findEdge(path.get(i));
+                    if(found != null){
+                        neuronListGraph.showEditEdgeDialog(win, found);
+                        dialog.pack();
+                    }
                 }
             }
+
+        }
+    }
+    private class NewPathListener implements ActionListener,Serializable{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(neuronListGraph.pathExists(getFirstSelectedNeuron(),getLastSelectedNeuron())) {
+                JOptionPane.showMessageDialog(win, "Det finns tyvärr redan en förbindelse");
+            }else
+                createNewPath();
+
+        }
+    }
+    private class ExitListener implements ActionListener,Serializable {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(hasChanges)
+                confirmExit(win, true);
+            else
+                System.exit(0);
+        }
+    }
 }
