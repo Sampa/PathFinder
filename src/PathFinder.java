@@ -26,7 +26,6 @@ public class PathFinder extends JFrame implements Serializable{
     private FileNameExtensionFilter filter;
     private boolean loadedFromFile,allowNewNeuron;
     private JMenuBar menuBar;
-    private JMenu arMenu,opMenu;
     private JPanel menuPanel;
     private JLayeredPane layerPanel;
     private String savedFilePath,findPathLabel,editPathLabel,newPathLabel,newNeuronLabel,showPathLabel;
@@ -37,23 +36,13 @@ public class PathFinder extends JFrame implements Serializable{
     private HashMap<Line, Boolean> lines;
     private ListGraph<Neuron> neuronListGraph = new ListGraph<>();
     private MouseListener mListener;
-    private NewPathListener newPathL;
     private NewNeuronListener newNeuronL;
-    private ShowPathListener spl;
-    private EditPathListener epl;
-    private FindPathListener fpl;
-    private SaveListener saveL;
-    private WindowListener ml;
-    private OpenListener openL;
-    private NewMapListener mpl;
-    private ExitListener el;
     private Color lineColor;
-    private Dimension lpd;
 
 
     PathFinder(){
         super("Pathfinder");
-        lpd = new Dimension(getWidth(),getHeight()-100);
+        Dimension lpd = new Dimension(getWidth(), getHeight() - 100);
         mListener = new myMouseListener();
         layerPanel = new JLayeredPane();
         layerPanel.setOpaque(true);
@@ -180,21 +169,6 @@ public class PathFinder extends JFrame implements Serializable{
             Neuron.selectedNeurons = new ArrayList<>();
             Neuron.setSelectedNeuronCount(0);
             loadedFromFile = true;
-            //  System.out.print(neuronListGraph);
-            //  ois.close();
-//            win = (PathFinder)ois.readObject();
-
-            // print(neuronListGraph.toString());
-            //  ListGraph<Object> lista = (
-//            println(neuronListGraph.getPairs().size());
-//              println(lista.toString());
-          /*  HashMap<Object,List<graphs.Edge>> allNeurons = (HashMap)ois.readObject();
-            HashMap<NeuronPair, graphs.Edge> pairs = (HashMap)ois.readObject();
-            neuronListGraph.setAllNeurons(allNeurons);
-            neuronListGraph.setPairs(pairs);
-            println(allNeurons.toString());
-            println(pairs.toString());*/
-
         } catch (ClassNotFoundException e) {
             JOptionPane.showMessageDialog(win,"Kunde inte återställa all data");
         } catch (FileNotFoundException fe) {
@@ -290,7 +264,7 @@ public class PathFinder extends JFrame implements Serializable{
         changeAllStateComponents(true);
     }
     private void buildArchieve()  {
-        arMenu = new JMenu("Arkiv");
+        JMenu arMenu = new JMenu("Arkiv");
         open = new JMenuItem("Öppna");
         newMap = new JMenuItem("Ny karta");
         exit = new JMenuItem("Avsluta");
@@ -312,7 +286,7 @@ public class PathFinder extends JFrame implements Serializable{
         saveAs.setActionCommand("saveAs");
     }
     private void buildOperations(){
-        opMenu = new JMenu("Operationer");
+        JMenu opMenu = new JMenu("Operationer");
         findPath = new JMenuItem(findPathLabel);
         editPath = new JMenuItem(editPathLabel);
         newPath = new JMenuItem(newPathLabel);
@@ -491,23 +465,23 @@ public class PathFinder extends JFrame implements Serializable{
         return arr;
     }
     private void addListeners() {
-        saveL = new SaveListener();
+        SaveListener saveL = new SaveListener();
         save.addActionListener(saveL);
         saveAs.addActionListener(saveL);
 
-        ml = new MyWindowListener();
+        WindowListener ml = new MyWindowListener();
         addWindowListener(ml);
 
-        el = new ExitListener();
+        ExitListener el = new ExitListener();
         exit.addActionListener(el);
 
-        openL = new OpenListener();
+        OpenListener openL = new OpenListener();
         open.addActionListener(openL);
 
-        mpl = new NewMapListener();
+        NewMapListener mpl = new NewMapListener();
         newMap.addActionListener(mpl);
 
-        newPathL = new NewPathListener();
+        NewPathListener newPathL = new NewPathListener();
         newPath.addActionListener(newPathL);
         newPathButton.addActionListener(newPathL);
 
@@ -515,15 +489,15 @@ public class PathFinder extends JFrame implements Serializable{
         newNeuron.addActionListener(newNeuronL);
         newNeuronButton.addActionListener(newNeuronL);
 
-        spl = new ShowPathListener();
+        ShowPathListener spl = new ShowPathListener();
         showPathButton.addActionListener(spl);
         showPath.addActionListener(spl);
 
-        epl = new EditPathListener();
+        EditPathListener epl = new EditPathListener();
+
         editPath.addActionListener(epl);
         editPathButton.addActionListener(epl);
-
-        fpl = new FindPathListener();
+        FindPathListener fpl = new FindPathListener();
         findPath.addActionListener(fpl);
         findPathButton.addActionListener(fpl);
 
@@ -795,11 +769,11 @@ public class PathFinder extends JFrame implements Serializable{
     private class NewPathListener implements ActionListener,Serializable{
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(neuronListGraph.pathExists(getFirstSelectedNeuron(),getLastSelectedNeuron())) {
-                JOptionPane.showMessageDialog(win, "Det finns tyvärr redan en förbindelse");
-            }else
+             NeuronPair np = neuronListGraph.getNeuronPair(getFirstSelectedNeuron(),getLastSelectedNeuron());
+            if(np==null)
                 createNewPath();
-
+            else
+                JOptionPane.showMessageDialog(win, "Det finns tyvärr redan en förbindelse");
         }
     }
     private class ExitListener implements ActionListener,Serializable {

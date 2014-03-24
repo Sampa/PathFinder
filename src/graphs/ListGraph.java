@@ -69,15 +69,18 @@ public class ListGraph<TYPE> extends GraphMethods<TYPE> implements Graph<TYPE>, 
     public List<Edge> getEdgesFrom(TYPE neuron){
         return allNeurons.get(neuron);
     }
-    public void add(TYPE  n) {
+    public boolean add(TYPE n) {
+        if(allNeurons.containsKey(n))
+            return false;
         allNeurons.put(n, new ArrayList<Edge>());
+        return true;
     }
+
     public boolean neuronsExist(TYPE n1, TYPE n2){
         if(!allNeurons.containsKey(n1) || !allNeurons.containsKey(n2))
             throw new NoSuchElementException();
         return true;
     }
-
     public NeuronPair getNeuronPair(TYPE n1,TYPE n2){
         NeuronPair np = null;
         for(NeuronPair pair : pairs.keySet()){
@@ -178,15 +181,10 @@ public class ListGraph<TYPE> extends GraphMethods<TYPE> implements Graph<TYPE>, 
                 "Visar förbindelse",
                 JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Ok"}, edgeWeight);
     }
-    public boolean disconnect(TYPE n1, TYPE n2) {
+    public void disconnect(TYPE n1, TYPE n2) {
         neuronsExist(n1,n2);
-        try {
-            NeuronPair temp = getNeuronPair(n1, n2);
-            pairs.remove(temp);
-            return true;
-        } catch (NoSuchElementException ne) {
-            return false;
-        }
+        NeuronPair temp = getNeuronPair(n1, n2);
+        pairs.remove(temp); //will throw NoSuchElementException if not found
     }
     public boolean remove(TYPE n) {
         try {

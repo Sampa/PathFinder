@@ -43,14 +43,12 @@ public class Neuron extends JComponent implements Serializable{
         try{
             this.panel.removeMouseListener(cl);
         }catch (NullPointerException npe){
-            System.out.print("darn");
         }
     }
     public void addListerner(){
         try{
             this.panel.addMouseListener(new ClickListener());
         }catch (NullPointerException npe){
-            System.out.print("darn");
         }
     }
 
@@ -105,7 +103,6 @@ public class Neuron extends JComponent implements Serializable{
         panel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
         setSelectedNeuronCount(neuronCount + 1);
         Neuron.selectedNeurons.add(this);
-        System.out.println(Neuron.selectedNeurons.toString());
         if (getSelectedNeuronCount() == 2) {
             win.enableAllStateItems();
         }

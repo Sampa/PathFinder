@@ -14,6 +14,21 @@ public class MatrixGraph<TYPE> extends GraphMethods<TYPE> implements Graph<TYPE>
     }
 
     @Override
+    public boolean add(TYPE n1) {
+        return false;
+    }
+
+    @Override
+    public boolean remove(TYPE n1) {
+        return false;
+    }
+
+    @Override
+    public void disconnect(TYPE n1, TYPE n2) {
+
+    }
+
+    @Override
     public boolean pathExists(TYPE from, TYPE to) {
         return pathExists(this, from, to, this);
     }

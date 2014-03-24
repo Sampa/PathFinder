@@ -13,12 +13,10 @@ Sampa härleds enkelt via danielvdb.se -> valfri extensions github repositry led
 Happyjuiced är ännu enklare http://facebook.com/happyjuiced.
 - Det finns ett antal block med utkommenterad kod, det är inget jätteproblem men kutym är att man städar bort utkommenterad kod då denna gör att den existerande koden blir mindre överblickbar.
  *Tror jag hittat det mesta jag missade senaste.
-
 -Interfacet saknar åtminstone metoderna add och remove samt setConnectionWeight vänligen läs igenom inlämningstextens sida två och tre igen.
-
+*Fixat
 - Om man försöker skapa en väg a-10-b, b-5-c c-10-d d-10-a går detta inte, den sista kanten man försöker skapa ger felmeddelande om att det redan finns en väg. Detta gör det tyvärr svårt att kolla om din path-finding fungerar.
-- MatrixGraph är inte färdigimplementerad
-
+*Fixat , jag tittade efter en väg istället för ifall ett neuronpair (som indikerar om det finns en edge)
 Några saker som du inte prompt behöver ändra på men som jag tycker är värda att anmärka är:
 - NeuronPairs hash-code returnerar ett fast värde. Detta leder till att sökningar i hash-maps blir otroligt långsamma då java i praktiken måste jämföra alla objekt i mappen med det efterfrågade.
        Ooopsi. Ändrat till
@@ -26,3 +24,7 @@ Några saker som du inte prompt behöver ändra på men som jag tycker är värd
         int n2length = n1.toString().length();
         return 10*(n1length+n2length);
 - Du har ett flertal instansvariabler för PathFinder som endast används i konstruktorn, de bör således placeras där.
+*Fixat (tror jag...)
+
+
+- MatrixGraph är inte färdigimplementerad
